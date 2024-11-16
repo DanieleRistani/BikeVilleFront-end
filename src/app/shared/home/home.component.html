@@ -1,5 +1,15 @@
 <section class="home">
-    <div id="home">
-        <h1>Home</h1>
+    <h2 class="text-center display-1">Home</h2>
+    <div class="row d-flex justify-content-center mt-5">
+        <div class="col-3" *ngFor="let category of categories">
+            <p class="text-center">{{category.name}}</p>
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let subCategories of category.inverseParentProductCategory.$values">
+                  {{subCategories.name}}
+                </li>
+            </ul>
+            
+        </div>
+       
     </div>
 </section>
