@@ -72,3 +72,91 @@ object-fit: cover;
     visibility: visible;
     transform: scale(100) translateX(2px);
   }
+
+
+  @media (max-width: 2155px) {
+    .h1-custom{
+      z-index: 2;
+      color:#333;
+      text-shadow: #f57500 4px 0 10px;
+      font-size: 110px;
+      word-spacing: 60px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      
+    }
+  
+  .button {
+    margin-top: 300px;
+    z-index: 2;
+    height: 80px;
+    width: 240px;
+    position: relative;
+    background-color: transparent;
+    cursor: pointer;
+    border: 2px solid #f57500;
+    overflow: hidden;
+    border-radius: 30px;
+    color: #f57500;
+    transition: all 0.5s ease-in-out;
+    }
+  }
+
+ 
+  @media (max-width:  1631px) {
+    .h1-custom{
+      z-index: 2;
+      color:#333;
+      text-shadow: #f57500 4px 0 10px;
+      font-size: 100px;
+      word-spacing: 60px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      
+    }
+  
+  .button {
+    margin-top: 300px;
+    z-index: 2;
+    height: 80px;
+    width: 240px;
+    position: relative;
+    background-color: transparent;
+    cursor: pointer;
+    border: 2px solid #f57500;
+    overflow: hidden;
+    border-radius: 30px;
+    color: #f57500;
+    transition: all 0.5s ease-in-out;
+    }
+  }
+
+
+  @media (max-width: 900px) {
+    .h1-custom{
+      z-index: 2;
+      color:#333;
+      text-shadow: #f57500 4px 0 10px;
+      font-size: 100px;
+      word-spacing: 60px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      
+    }
+
+  .button {
+    margin-top: 300px;
+    z-index: 2;
+    height: 60px;
+    width: 220px;
+    position: relative;
+    background-color: transparent;
+    cursor: pointer;
+    border: 2px solid #f57500;
+    overflow: hidden;
+    border-radius: 30px;
+    color: #f57500;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
