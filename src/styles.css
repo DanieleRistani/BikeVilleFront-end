@@ -59,14 +59,7 @@ body {
 	transform: translate(-50%, -50%);
 }
 
-.header h1::before,
-.home h1::before,
-.about h1::before,
-.portfolio h1::before,
-.contact h1::before,
-.footer h1::before {
-	content: '#';
-}
+
 
 .header h1,
 .footer h1 {
