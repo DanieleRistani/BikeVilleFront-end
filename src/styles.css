@@ -21,7 +21,12 @@
 
 
 
-
+.custom-register-bg{
+    background-image: url('assets/Register.avif');
+	background-size: 16%;
+	
+	
+}
 
 
 
