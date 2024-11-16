@@ -4,6 +4,12 @@
 	--shades: rgba(238, 238, 238, 1.0);
 }
 
+
+
+
+
+
+/* Font custom */
 @font-face {
 	font-family: "slugsRacer";
 	src: url("assets/Font/SlugsRacer.ttf");
@@ -19,6 +25,8 @@
 
 
 
+
+/* NavBar */
 * {
 	scroll-behavior: smooth;
 }
@@ -313,4 +321,17 @@ body {
 #nav:checked~.nav ul li a {
 	opacity: 1;
 	transform: translateY(0);
+}
+
+
+/* Dark mode */
+
+.night-mode {
+	background-color: #121111;
+	color: #fff;
+}
+
+.light-mode {
+	background-color: #fff;
+	color: #121111;
 }
