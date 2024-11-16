@@ -16,9 +16,15 @@ export class NavBarComponent implements OnInit {
     }else{
       window.localStorage.setItem('isNight', 'false')
     }
-    console.log(window.localStorage.getItem('isNight'));
-    console.log(this.isNight);
-    
+
+    if(window.localStorage.getItem('isNight') == 'true'){
+      document.body.classList.add('night-mode');
+      document.body.classList.remove('light-mode');
+    }else{
+      document.body.classList.remove('night-mode');
+      document.body.classList.add('light-mode');
+    }
+   
   }
  
   isNight: boolean = window.localStorage.getItem('isNight') == 'true' ? true : false
