@@ -2,25 +2,35 @@ import { Component,  OnInit} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms'
 import { NgClass } from '@angular/common';
+import { CategoriesService } from '../../service/category/categories.service';
+import { NgFor } from '@angular/common';
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [RouterLink,FormsModule,NgClass],
+  imports: [RouterLink,FormsModule,NgClass,NgFor],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent implements OnInit{
   
   
- 
+ constructor(private categoryService: CategoriesService) { }
 
-
+  categories: any[]= [];
   show !:boolean;
   isNight: boolean = window.localStorage.getItem('isNight') == 'true' ? true : false
  
   
   ngOnInit(): void {
+
+    this.categoryService.getCategories().subscribe((data: any) => {
+      this.categories = data.$values.filter((item : any) => !item.$ref);  
+    })
+
+
     this.show=false
+
+
     if( window.localStorage.getItem('isNight')){
       
     }else{
@@ -35,6 +45,7 @@ export class NavBarComponent implements OnInit{
       document.body.classList.add('light-mode');
     }
    
+
   }
  
   turnOnNightMode() {

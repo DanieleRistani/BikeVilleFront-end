@@ -1,0 +1,15 @@
+<section class="home container-fluid">
+    <h2 class="text-center display-1">{{category.name}}</h2>
+    <div class="row justify-content-center">
+        <div class="col-4">
+
+            <ul class="list-group w-100">
+                <li class="list-group-item" *ngFor="let subCategories of category.inverseParentProductCategory.$values">
+                  {{subCategories.name}}
+                </li>
+            </ul>
+
+        </div>
+       
+    </div>
+</section>

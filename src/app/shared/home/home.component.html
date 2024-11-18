@@ -1,14 +1,8 @@
 <section class="home container-fluid">
     <h2 class="text-center display-1">Home</h2>
     <div class="row d-flex justify-content-center mt-5">
-        <div class="col-3" *ngFor="let category of categories">
-            <p class="text-center">{{category.name}}</p>
-            <ul class="list-group">
-                <li class="list-group-item" *ngFor="let subCategories of category.inverseParentProductCategory.$values">
-                  {{subCategories.name}}
-                </li>
-            </ul>
-            
+        <div class="col-3 d-flex flex-column align-items-center" *ngFor="let category of categories">
+            <a  routerLink="/categories/{{category.productCategoryId}}"><button class="btn btn-dark mb-3"><p class="text-center ">{{category.name}}</p></button></a>  
         </div>
        
     </div>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
   
 @Injectable({
   providedIn: 'root'
@@ -15,4 +15,6 @@ export class CategoriesService {
   getCategory(id: number) {
     return this.http.get('https://localhost:7167/ProductCategories/Details/' + id);
   }
+
+  
 }
