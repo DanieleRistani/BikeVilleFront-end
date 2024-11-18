@@ -76,3 +76,9 @@
   color: #141313;
 }
 
+.invalid{
+  border-bottom: 2px solid red;
+}
+.error-custom{
+  font-size: 10px;
+}

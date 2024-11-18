@@ -1,22 +1,18 @@
 import { Component,  OnInit} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms'
-
+import { NgClass } from '@angular/common';
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [RouterLink,FormsModule],
+  imports: [RouterLink,FormsModule,NgClass],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent implements OnInit{
   
   
-  isShow(){
-    if(this.show==true){
-      this.show=false
-    }
-  }
+ 
 
 
   show !:boolean;
@@ -54,7 +50,11 @@ export class NavBarComponent implements OnInit{
     }
   }
 
- 
+  isShow(){
+    if(this.show==true){
+      this.show=false
+    }
+  }
 
 
 }
