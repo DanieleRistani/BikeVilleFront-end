@@ -36,7 +36,11 @@ color: var(--secondary);
 	
 }
 
-
+.categories-p-custom{
+	font-size: 40px;
+	font-weight: 800;
+	letter-spacing: 4px;
+}
 
 
 /* NavBar */
@@ -197,6 +201,24 @@ body {
 		justify-content: space-between;
 	}
 }
+@media  (max-width: 1700px) {
+	.categories-p-custom{
+		font-size: 30px;
+		
+	}
+}
+@media  (max-width: 1340px) {
+	.categories-p-custom{
+		font-size: 25px;
+		
+	}
+}
+ @media  (max-width: 1240px) {
+	.categories-p-custom{
+		font-size: 20px;
+		
+	}
+}
 
 @media screen and (max-width: 905px) {
     
@@ -350,6 +372,7 @@ body {
 }
 /* Home */
 .custom-col-home1{
+	height: 100%;
     border: 4px solid black;
 	background-image:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
     url("assets/bikes.jpg");
@@ -364,6 +387,7 @@ body {
 	background-image: url("assets/bikes.jpg");
 }
 .custom-col-home2{
+	height: 100%;
     border: 4px solid black;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
     url("assets/components.jpg");
@@ -377,6 +401,7 @@ body {
 	background-image: url("assets/components.jpg") ;
 }
 .custom-col-home3{
+	height: 100%;
     border: 4px solid black;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
     url("assets/clothes.jpg");
@@ -390,6 +415,7 @@ body {
 	background-image:url("assets/clothes.jpg");
 }
 .custom-col-home4{
+	height: 100%;
 	border: 4px solid black;
 	background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
     url("assets/accessories.jpg");
@@ -401,5 +427,20 @@ body {
 .custom-col-home4:hover{
 	transform: scale(1.1);
 	background-image:url("assets/accessories.jpg");
+}
+
+@media  (max-width: 805px) {
+	.custom-col-home1{
+		height: 25%;
+	}
+	.custom-col-home2{
+		height: 25%;
+	}
+	.custom-col-home3{
+		height: 25%;
+	}
+	.custom-col-home4{
+		height: 25%;
+	}
 }
 
