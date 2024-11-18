@@ -60,7 +60,7 @@ body {
 .about,
 .portfolio,
 .contact {
-	min-height: 100vh;
+	min-height: 80vh;
 }
 
 .header,
@@ -372,7 +372,7 @@ body {
 }
 /* Home */
 .custom-col-home1{
-	height: 100vh;
+	height: 80vh;
     border: 2px solid black;
 	background-image:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
     url("assets/bikes.jpg");
@@ -387,7 +387,7 @@ body {
 	background-image: url("assets/bikes.jpg");
 }
 .custom-col-home2{
-	height: 100vh;
+	height: 80vh;
     border: 2px solid black;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
     url("assets/components.jpg");
@@ -401,7 +401,7 @@ body {
 	background-image: url("assets/components.jpg") ;
 }
 .custom-col-home3{
-	height: 100vh;
+	height: 80vh;
     border: 2px solid black;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
     url("assets/clothes.jpg");
@@ -415,7 +415,7 @@ body {
 	background-image:url("assets/clothes.jpg");
 }
 .custom-col-home4{
-	height: 100vh;
+	height: 80vh;
 	border: 2px solid black;
 	background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
     url("assets/accessories.jpg");
@@ -431,16 +431,16 @@ body {
 
 @media  (max-width: 805px) {
 	.custom-col-home1{
-		height: 50vh;
+		height: 60vh;
 	}
 	.custom-col-home2{
-		height: 50vh;
+		height: 60vh;
 	}
 	.custom-col-home3{
-		height: 50vh;
+		height: 60vh;
 	}
 	.custom-col-home4{
-		height: 50vh;
+		height: 60vh;
 	}
 }
 

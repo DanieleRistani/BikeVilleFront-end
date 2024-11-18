@@ -1,15 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { NgClass } from '@angular/common';
 import { NgIf, NgFor } from '@angular/common';
 import { FormBuilder } from '@angular/forms';
 import { RegisterService } from '../../service/auth/register.service';
-import { first } from 'rxjs';
-import { Title } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, NgClass, NgFor, NgIf],
+  imports: [ReactiveFormsModule, NgClass, NgFor, NgIf,FormsModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -18,6 +17,7 @@ export class RegisterComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private registerService: RegisterService) { }
   registerForm!: FormGroup
 
+  showPassword: boolean = false;
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({

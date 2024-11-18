@@ -10,10 +10,7 @@
   transition: .4s ease-in-out;
 }
 
-.form:hover {
-  transform: scale(1.05);
-  border: 1px solid black;
-}
+
 
 #heading {
   text-align: center;
@@ -81,4 +78,60 @@
 }
 .error-custom{
   font-size: 10px;
+}
+
+
+
+/* toggle */
+#lock {
+  display: none;
+}
+.lock-label {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(80, 80, 80);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.lock-wrapper {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-10deg);
+}
+.shackle {
+  background-color: transparent;
+  height: 9px;
+  width: 14px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top: 3px solid white;
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+  transition: all 0.3s;
+}
+.lock-body {
+  width: 15px;
+}
+#lock:checked + .lock-label .lock-wrapper .shackle {
+  transform: rotateY(150deg) translateX(3px);
+  transform-origin: right;
+}
+#lock:checked + .lock-label {
+  background-color: #f57500;
+}
+.lock-label:active {
+  transform: scale(0.9);
+}
+
+.custom-show-password{
+  left: -110px;
+  top: 270px;
 }

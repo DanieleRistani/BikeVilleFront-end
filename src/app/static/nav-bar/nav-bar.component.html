@@ -14,7 +14,7 @@
 				  Categories
 				</a>
 				<ul class="dropdown-menu bg-dark">
-				  <li *ngFor="let category of categories" ><a class="dropdown-item nav__link" routerLink="/categories/{{category.productCategoryId}}">{{category.name}}</a></li> 
+				  <li *ngFor="let category of categories" ><a class="dropdown-item nav__link" routerLink="/categories/{{category.productCategoryId}}" (click)="isShow()">{{category.name}}</a></li> 
 				</ul>
 			</li>
             <li class="nav__item me-5"><a  class="nav__link" routerLink="/" (click)="isShow()">Home</a></li>

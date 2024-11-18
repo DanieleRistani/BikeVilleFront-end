@@ -1,94 +1,148 @@
 <section class="home container-fluid aling-items-center custom-register-bg ">
     <div class="row d-flex justify-content-center align-items-center vh-100">
-        
+
         <div class="col-10 col-md-9 col-lg-4 d-flex justify-content-center align-items-center">
-            <form class="form w-100 my-5 "  [formGroup]="registerForm">
-                <h2  class="text-center text-custom-font display-1 my-5 text-white display-6">Register</h2>
+            <form class="form w-100 my-5 " [formGroup]="registerForm">
+                <h2 class="text-center text-custom-font display-1 my-5 text-white display-6">Register</h2>
                 <div class="d-flex justify-content-center">
 
                     <div class="d-flex justify-content-evenly flex-column w-100">
-                        <div class="field mb-2" [ngClass]="{invalid: registerForm.get('firstName')?.errors && registerForm.get('firstName')?.touched}">
+                        <div class="field mb-2"
+                            [ngClass]="{invalid: registerForm.get('firstName')?.errors && registerForm.get('firstName')?.touched}">
                             <i class="fa fa-solid fa-user"></i>
-                            <input autocomplete="off" placeholder="First name" class="input-field" type="text" formControlName="firstName">
-                            <span *ngIf="registerForm.get('firstName')?.hasError('required') && registerForm.get('firstName')?.touched"  class="text-danger error-custom">First name is require</span>
-                            <span *ngIf="registerForm.get('firstName')?.hasError('minlength') && registerForm.get('firstName')?.touched"  class="text-danger error-custom">First allmore 3 characters</span>
-                            <span *ngIf="registerForm.get('firstName')?.hasError('maxlength') && registerForm.get('firstName')?.touched"  class="text-danger error-custom">First allmore 10 characters</span>
+                            <input autocomplete="off" placeholder="First name" class="input-field" type="text"
+                                formControlName="firstName">
+                            <span
+                                *ngIf="registerForm.get('firstName')?.hasError('required') && registerForm.get('firstName')?.touched"
+                                class="text-danger error-custom">First name is require</span>
+                            <span
+                                *ngIf="registerForm.get('firstName')?.hasError('minlength') && registerForm.get('firstName')?.touched"
+                                class="text-danger error-custom">First allmore 3 characters</span>
+                            <span
+                                *ngIf="registerForm.get('firstName')?.hasError('maxlength') && registerForm.get('firstName')?.touched"
+                                class="text-danger error-custom">First allmore 10 characters</span>
                         </div>
-                        <div class="field mb-2" [ngClass]="{invalid: registerForm.get('middleName')?.errors && registerForm.get('middleName')?.touched}">
+                        <div class="field mb-2"
+                            [ngClass]="{invalid: registerForm.get('middleName')?.errors && registerForm.get('middleName')?.touched}">
                             <i class="fa fa-solid fa-user"></i>
-                            <input autocomplete="off" placeholder="Middle name" class="input-field" type="text" formControlName="middleName">
+                            <input autocomplete="off" placeholder="Middle name" class="input-field" type="text"
+                                formControlName="middleName">
                         </div>
-                        <div class="field " [ngClass]="{invalid: registerForm.get('lastName')?.errors && registerForm.get('lastName')?.touched}">
+                        <div class="field "
+                            [ngClass]="{invalid: registerForm.get('lastName')?.errors && registerForm.get('lastName')?.touched}">
                             <i class="fa fa-solid fa-user"></i>
-                            <input autocomplete="off" placeholder="Last name" class="input-field" type="text" formControlName="lastName">
-                            <span *ngIf="registerForm.get('lastName')?.hasError('required') && registerForm.get('lastName')?.touched"  class="text-danger error-custom">Last name is require</span>
-                            <span *ngIf="registerForm.get('lastName')?.hasError('minlength') && registerForm.get('lastName')?.touched"  class="text-danger error-custom">Last allmore 3 characters</span>
-                            <span *ngIf="registerForm.get('lastName')?.hasError('maxlength') && registerForm.get('lastName')?.touched"  class="text-danger error-custom">Last allmore 10 characters</span>
+                            <input autocomplete="off" placeholder="Last name" class="input-field" type="text"
+                                formControlName="lastName">
+                            <span
+                                *ngIf="registerForm.get('lastName')?.hasError('required') && registerForm.get('lastName')?.touched"
+                                class="text-danger error-custom">Last name is require</span>
+                            <span
+                                *ngIf="registerForm.get('lastName')?.hasError('minlength') && registerForm.get('lastName')?.touched"
+                                class="text-danger error-custom">Last allmore 3 characters</span>
+                            <span
+                                *ngIf="registerForm.get('lastName')?.hasError('maxlength') && registerForm.get('lastName')?.touched"
+                                class="text-danger error-custom">Last allmore 10 characters</span>
                         </div>
-    
+
                     </div>
                     <div class="d-flex justify-content-start  flex-column ms-5">
-                        
-                            <div class="field mb-2" [ngClass]="{invalid: registerForm.get('suffix')?.errors && registerForm.get('suffix')?.touched}">
-                                <i class="fa fa-solid fa-user"></i>
-                                <input autocomplete="off" placeholder="Suffix" class="input-field" type="text" formControlName="suffix">
-                            </div>
-                            <div class="field  " [ngClass]="{invalid: registerForm.get('title')?.errors && registerForm.get('title')?.touched}">
-                                <i class="fa fa-solid fa-user"></i>
-                                <input autocomplete="off" placeholder="Title" class="input-field" type="text" formControlName="title">
-                            </div>
-  
+
+                        <div class="field mb-2"
+                            [ngClass]="{invalid: registerForm.get('suffix')?.errors && registerForm.get('suffix')?.touched}">
+                            <i class="fa fa-solid fa-user"></i>
+                            <input autocomplete="off" placeholder="Suffix" class="input-field" type="text"
+                                formControlName="suffix">
+                        </div>
+                        <div class="field  "
+                            [ngClass]="{invalid: registerForm.get('title')?.errors && registerForm.get('title')?.touched}">
+                            <i class="fa fa-solid fa-user"></i>
+                            <input autocomplete="off" placeholder="Title" class="input-field" type="text"
+                                formControlName="title">
+                        </div>
+
                     </div>
                 </div>
 
 
-               
-                <div class="field" [ngClass]="{invalid: registerForm.get('email')?.errors && registerForm.get('email')?.touched}">
+
+                <div class="field"
+                    [ngClass]="{invalid: registerForm.get('email')?.errors && registerForm.get('email')?.touched}">
                     <i class="fa fa-solid fa-envelope"></i>
-                    <input autocomplete="off" placeholder="Email" class="input-field" type="email" formControlName="email">
-                    <span *ngIf="registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched"  class="text-danger error-custom"> Email is require</span>
-                    <span *ngIf="registerForm.get('email')?.hasError('email') && registerForm.get('email')?.touched"  class="text-danger error-custom"> Email is not valid</span>
-                    
+                    <input autocomplete="off" placeholder="Email" class="input-field" type="email"
+                        formControlName="email">
+                    <span *ngIf="registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched"
+                        class="text-danger error-custom"> Email is require</span>
+                    <span *ngIf="registerForm.get('email')?.hasError('email') && registerForm.get('email')?.touched"
+                        class="text-danger error-custom"> Email is not valid</span>
+
                 </div>
-                <div class="field" [ngClass]="{invalid: registerForm.get('phone')?.errors && registerForm.get('phone')?.touched}">
+                <div class="field"
+                    [ngClass]="{invalid: registerForm.get('phone')?.errors && registerForm.get('phone')?.touched}">
                     <i class="fa fa-solid fa-phone"></i>
-                    <input autocomplete="off" placeholder="Phone" class="input-field" type="number" formControlName="phone">
-                    <span *ngIf="registerForm.get('phone')?.hasError('required') && registerForm.get('phone')?.touched"  class="text-danger error-custom"> phone is require</span>
-                    <span *ngIf="registerForm.get('phone')?.hasError('minlength') && registerForm.get('phone')?.touched"  class="text-danger error-custom"> phone is not valid</span>
-                    <span *ngIf="registerForm.get('phone')?.hasError('maxlength') && registerForm.get('phone')?.touched"  class="text-danger error-custom"> phone is not valid</span>
+                    <input autocomplete="off" placeholder="Phone" class="input-field" type="number"
+                        formControlName="phone">
+                    <span *ngIf="registerForm.get('phone')?.hasError('required') && registerForm.get('phone')?.touched"
+                        class="text-danger error-custom"> phone is require</span>
+                    <span *ngIf="registerForm.get('phone')?.hasError('minlength') && registerForm.get('phone')?.touched"
+                        class="text-danger error-custom"> phone is not valid</span>
+                    <span *ngIf="registerForm.get('phone')?.hasError('maxlength') && registerForm.get('phone')?.touched"
+                        class="text-danger error-custom"> phone is not valid</span>
                 </div>
                 <div class="d-flex">
-                    <div class="field me-5 w-100" [ngClass]="{invalid: registerForm.get('password')?.errors && registerForm.get('password')?.touched}">
+                    <div class="field me-2 w-75"
+                        [ngClass]="{invalid: registerForm.get('password')?.errors && registerForm.get('password')?.touched}">
                         <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" viewBox="0 0 16 16">
                             <path
                                 d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z">
                             </path>
                         </svg>
-                        <input placeholder="Password" class="input-field" type="password" formControlName="password">
-                    <span *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched"  class="text-danger error-custom"> password is require</span>
-                    <span *ngIf="registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched"  class="text-danger error-custom"> password is moreless than 8</span>
+                        <input placeholder="Password" class="input-field" [type]="showPassword ? 'text' : 'password'" formControlName="password">
+                        <span
+                            *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched"
+                            class="text-danger error-custom"> password is require</span>
+                        <span
+                            *ngIf="registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched"
+                            class="text-danger error-custom"> password is moreless than 8</span>
                     </div>
-                    <div class="field ms-4 w-100" [ngClass]="{invalid: registerForm.get('confirmedPassword')?.errors && registerForm.get('confirmedPassword')?.touched}">
+                    <div class="field  w-75"
+                        [ngClass]="{invalid: registerForm.get('confirmedPassword')?.errors && registerForm.get('confirmedPassword')?.touched}">
                         <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" viewBox="0 0 16 16">
                             <path
                                 d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z">
                             </path>
                         </svg>
-                        <input placeholder="ConfirmedPassword" class="input-field" type="password" formControlName="confirmedPassword">
-                    <span *ngIf="registerForm.get('confirmedPassword')?.hasError('required') && registerForm.get('confirmedPassword')?.touched"  class="text-danger error-custom"> Confirmed password is require</span>
-                    <span *ngIf="registerForm.get('confirmedPassword')?.hasError('mismatch') && registerForm.get('confirmedPassword')?.touched"  class="text-danger error-custom">Confirm password does not match</span>
+                        <input placeholder="ConfirmedPassword" class="input-field" [type]="showPassword ? 'text' : 'password'" formControlName="confirmedPassword">
+                        <span
+                            *ngIf="registerForm.get('confirmedPassword')?.hasError('required') && registerForm.get('confirmedPassword')?.touched"
+                            class="text-danger error-custom"> Confirmed password is require</span>
+                        <span
+                            *ngIf="registerForm.get('confirmedPassword')?.hasError('mismatch') && registerForm.get('confirmedPassword')?.touched"
+                            class="text-danger error-custom">Confirm password does not match</span>
 
                     </div>
 
                 </div>
                
-                <button class="btn button1 border-0 rounded-5 mb-3" [disabled]="registerForm.invalid" (click)="addUser()">Register</button>
 
-                
+                <button class="btn button1 border-0 rounded-5 mb-3 w-75" [disabled]="registerForm.invalid" (click)="addUser()">Register</button>
 
             </form>
+            <div class="position-relative custom-show-password">
+                <input type="checkbox" id="lock" [(ngModel)]="showPassword" />
+                <label for="lock" class="lock-label">
+                    <span class="lock-wrapper">
+                        <span class="shackle"></span>
+                        <svg class="lock-body" width="" height="" viewBox="0 0 28 28" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0 5C0 2.23858 2.23858 0 5 0H23C25.7614 0 28 2.23858 28 5V23C28 25.7614 25.7614 28 23 28H5C2.23858 28 0 25.7614 0 23V5ZM16 13.2361C16.6137 12.6868 17 11.8885 17 11C17 9.34315 15.6569 8 14 8C12.3431 8 11 9.34315 11 11C11 11.8885 11.3863 12.6868 12 13.2361V18C12 19.1046 12.8954 20 14 20C15.1046 20 16 19.1046 16 18V13.2361Z"
+                                fill="white"></path>
+                        </svg>
+                    </span>
+                </label>
+            </div>
         </div>
     </div>
 </section>
