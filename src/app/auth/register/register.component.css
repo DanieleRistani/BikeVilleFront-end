@@ -68,6 +68,7 @@
   transition: .4s ease-in-out;
   background-color: #252525;
   color: white;
+  font-size: 30px;
 }
 
 .button1:hover {

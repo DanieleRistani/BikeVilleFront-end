@@ -4,19 +4,19 @@
 	<a class=" ms-2 nav__link navbar-brand text-white d-flex justify-content-start align-items-center" routerLink="/" ><span class="display-5 ms-4 text-custom-font text-logo">Bike Ville</span></a>
 	
 
-	<input type="checkbox" id="nav" class="hidden" />
+	<input type="checkbox" id="nav" class="hidden" [(ngModel)]="show" />
 	<label for="nav" class="nav__open" ><i></i><i></i><i></i></label>
 	<div class="nav ">
 		<ul class="nav__items ">
             <li class="nav__item"><a  class="nav__link" >Link 1</a></li>
             <li class="nav__item"><a  class="nav__link" >Link 2</a></li>
-            <li class="nav__item me-5"><a  class="nav__link" routerLink="/" >Home</a></li>
+            <li class="nav__item me-5"><a  class="nav__link" routerLink="/" (click)="isShow()">Home</a></li>
             
             
            
-            <li class="nav__item"><a class="nav__link" id="register" routerLink="/register">Register</a></li>
-            <li class="nav__item "><a class="nav__link" id="login" routerLink="/login">Login</a></li>
-            <li class="nav__item ms-5 d-none"><a class="nav__link" id="logout">Login</a></li>
+            <li class="nav__item"><a class="nav__link" id="register" routerLink="/register" (click)="isShow()">Register</a></li>
+            <li class="nav__item "><a class="nav__link" id="login" routerLink="/login" (click)="isShow()">Login</a></li>
+            <li class="nav__item ms-5 d-none"><a class="nav__link" id="logout" (click)="isShow()">Login</a></li>
             
 		</ul>
 	</div>

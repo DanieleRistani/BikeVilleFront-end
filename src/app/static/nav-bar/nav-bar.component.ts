@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  OnInit} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms'
-import { NgModel } from '@angular/forms';
+
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
@@ -9,8 +9,22 @@ import { NgModel } from '@angular/forms';
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent implements OnInit{
+  
+  
+  isShow(){
+    if(this.show==true){
+      this.show=false
+    }
+  }
+
+
+  show !:boolean;
+  isNight: boolean = window.localStorage.getItem('isNight') == 'true' ? true : false
+ 
+  
   ngOnInit(): void {
+    this.show=false
     if( window.localStorage.getItem('isNight')){
       
     }else{
@@ -27,7 +41,6 @@ export class NavBarComponent implements OnInit {
    
   }
  
-  isNight: boolean = window.localStorage.getItem('isNight') == 'true' ? true : false
   turnOnNightMode() {
     if (this.isNight == false) {
       window.localStorage.setItem('isNight', 'true')
@@ -40,6 +53,8 @@ export class NavBarComponent implements OnInit {
       document.body.classList.add('light-mode');
     }
   }
+
+ 
 
 
 }

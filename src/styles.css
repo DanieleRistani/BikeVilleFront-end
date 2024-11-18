@@ -22,7 +22,8 @@
 
 
 .custom-register-bg{
-    background-image: url('assets/Register.avif');
+	
+    background-image: url('assets/register.jpeg');
 	background-size: 16%;
 	
 	
@@ -48,7 +49,7 @@ body {
 .about,
 .portfolio,
 .contact {
-	height: 100vh;
+	min-height: 100vh;
 }
 
 .header,
