@@ -1,12 +1,12 @@
 <section class="home container-fluid aling-items-center custom-register-bg ">
-    <div class="row d-flex justify-content-center align-items-center ">
+    <div class="row d-flex justify-content-center align-items-center vh-100">
         
         <div class="col-10 col-md-9 col-lg-4 d-flex justify-content-center align-items-center">
             <form class="form w-100 my-5 "  [formGroup]="registerForm">
                 <h2  class="text-center text-custom-font display-1 my-5 text-white display-6">Register</h2>
                 <div class="d-flex justify-content-center">
 
-                    <div class="d-flex justify-content-evenly flex-column w-50">
+                    <div class="d-flex justify-content-evenly flex-column w-100">
                         <div class="field mb-2" [ngClass]="{invalid: registerForm.get('firstName')?.errors && registerForm.get('firstName')?.touched}">
                             <i class="fa fa-solid fa-user"></i>
                             <input autocomplete="off" placeholder="First name" class="input-field" type="text" formControlName="firstName">
@@ -58,7 +58,7 @@
                     <span *ngIf="registerForm.get('phone')?.hasError('maxlength') && registerForm.get('phone')?.touched"  class="text-danger error-custom"> phone is not valid</span>
                 </div>
                 <div class="d-flex">
-                    <div class="field me-5 " [ngClass]="{invalid: registerForm.get('password')?.errors && registerForm.get('password')?.touched}">
+                    <div class="field me-5 w-100" [ngClass]="{invalid: registerForm.get('password')?.errors && registerForm.get('password')?.touched}">
                         <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" viewBox="0 0 16 16">
                             <path
@@ -69,7 +69,7 @@
                     <span *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched"  class="text-danger error-custom"> password is require</span>
                     <span *ngIf="registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched"  class="text-danger error-custom"> password is moreless than 8</span>
                     </div>
-                    <div class="field ms-4" [ngClass]="{invalid: registerForm.get('confirmedPassword')?.errors && registerForm.get('confirmedPassword')?.touched}">
+                    <div class="field ms-4 w-100" [ngClass]="{invalid: registerForm.get('confirmedPassword')?.errors && registerForm.get('confirmedPassword')?.touched}">
                         <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" viewBox="0 0 16 16">
                             <path
