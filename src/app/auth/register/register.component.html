@@ -4,44 +4,44 @@
         <div class="col-10 col-md-9 col-lg-4 d-flex justify-content-center align-items-center">
             <form class="form w-100 my-5 "  [formGroup]="registerForm">
                 <h2  class="text-center text-custom-font display-1 my-5 text-white display-6">Register</h2>
-                
-                <div class="d-flex justify-content-evenly ">
-                    <div class="field me-1 " [ngClass]="{invalid: registerForm.get('firstName')?.errors && registerForm.get('firstName')?.touched}">
-                        <i class="fa fa-solid fa-user"></i>
-                        <input autocomplete="off" placeholder="First name" class="input-field" type="text" formControlName="firstName">
-                        <span *ngIf="registerForm.get('firstName')?.hasError('required') && registerForm.get('firstName')?.touched"  class="text-danger error-custom">First name is require</span>
-                        <span *ngIf="registerForm.get('firstName')?.hasError('minlength') && registerForm.get('firstName')?.touched"  class="text-danger error-custom">First allmore 3 characters</span>
-                        <span *ngIf="registerForm.get('firstName')?.hasError('maxlength') && registerForm.get('firstName')?.touched"  class="text-danger error-custom">First allmore 10 characters</span>
-                    </div>
-                    <div class="field me-1" [ngClass]="{invalid: registerForm.get('middleName')?.errors && registerForm.get('middleName')?.touched}">
-                        <i class="fa fa-solid fa-user"></i>
-                        <input autocomplete="off" placeholder="Middle name" class="input-field" type="text" formControlName="middleName">
-                    </div>
-                    <div class="field " [ngClass]="{invalid: registerForm.get('lastName')?.errors && registerForm.get('lastName')?.touched}">
-                        <i class="fa fa-solid fa-user"></i>
-                        <input autocomplete="off" placeholder="Last name" class="input-field" type="text" formControlName="lastName">
-                        <span *ngIf="registerForm.get('lastName')?.hasError('required') && registerForm.get('lastName')?.touched"  class="text-danger error-custom">Last name is require</span>
-                        <span *ngIf="registerForm.get('lastName')?.hasError('minlength') && registerForm.get('lastName')?.touched"  class="text-danger error-custom">Last allmore 3 characters</span>
-                        <span *ngIf="registerForm.get('lastName')?.hasError('maxlength') && registerForm.get('lastName')?.touched"  class="text-danger error-custom">Last allmore 10 characters</span>
-                    </div>
+                <div class="d-flex justify-content-center">
 
+                    <div class="d-flex justify-content-evenly flex-column w-50">
+                        <div class="field mb-2" [ngClass]="{invalid: registerForm.get('firstName')?.errors && registerForm.get('firstName')?.touched}">
+                            <i class="fa fa-solid fa-user"></i>
+                            <input autocomplete="off" placeholder="First name" class="input-field" type="text" formControlName="firstName">
+                            <span *ngIf="registerForm.get('firstName')?.hasError('required') && registerForm.get('firstName')?.touched"  class="text-danger error-custom">First name is require</span>
+                            <span *ngIf="registerForm.get('firstName')?.hasError('minlength') && registerForm.get('firstName')?.touched"  class="text-danger error-custom">First allmore 3 characters</span>
+                            <span *ngIf="registerForm.get('firstName')?.hasError('maxlength') && registerForm.get('firstName')?.touched"  class="text-danger error-custom">First allmore 10 characters</span>
+                        </div>
+                        <div class="field mb-2" [ngClass]="{invalid: registerForm.get('middleName')?.errors && registerForm.get('middleName')?.touched}">
+                            <i class="fa fa-solid fa-user"></i>
+                            <input autocomplete="off" placeholder="Middle name" class="input-field" type="text" formControlName="middleName">
+                        </div>
+                        <div class="field " [ngClass]="{invalid: registerForm.get('lastName')?.errors && registerForm.get('lastName')?.touched}">
+                            <i class="fa fa-solid fa-user"></i>
+                            <input autocomplete="off" placeholder="Last name" class="input-field" type="text" formControlName="lastName">
+                            <span *ngIf="registerForm.get('lastName')?.hasError('required') && registerForm.get('lastName')?.touched"  class="text-danger error-custom">Last name is require</span>
+                            <span *ngIf="registerForm.get('lastName')?.hasError('minlength') && registerForm.get('lastName')?.touched"  class="text-danger error-custom">Last allmore 3 characters</span>
+                            <span *ngIf="registerForm.get('lastName')?.hasError('maxlength') && registerForm.get('lastName')?.touched"  class="text-danger error-custom">Last allmore 10 characters</span>
+                        </div>
+    
+                    </div>
+                    <div class="d-flex justify-content-start  flex-column ms-5">
+                        
+                            <div class="field mb-2" [ngClass]="{invalid: registerForm.get('suffix')?.errors && registerForm.get('suffix')?.touched}">
+                                <i class="fa fa-solid fa-user"></i>
+                                <input autocomplete="off" placeholder="Suffix" class="input-field" type="text" formControlName="suffix">
+                            </div>
+                            <div class="field  " [ngClass]="{invalid: registerForm.get('title')?.errors && registerForm.get('title')?.touched}">
+                                <i class="fa fa-solid fa-user"></i>
+                                <input autocomplete="off" placeholder="Title" class="input-field" type="text" formControlName="title">
+                            </div>
+  
+                    </div>
                 </div>
 
 
-                <div class="d-flex justify-content-evenly ">
-                    <div class="d-flex">
-                        <div class="field me-5 " [ngClass]="{invalid: registerForm.get('suffix')?.errors && registerForm.get('suffix')?.touched}">
-                            <i class="fa fa-solid fa-user"></i>
-                            <input autocomplete="off" placeholder="Suffix" class="input-field" type="text" formControlName="suffix">
-                        </div>
-                        <div class="field ms-5 " [ngClass]="{invalid: registerForm.get('title')?.errors && registerForm.get('title')?.touched}">
-                            <i class="fa fa-solid fa-user"></i>
-                            <input autocomplete="off" placeholder="Title" class="input-field" type="text" formControlName="title">
-                        </div>
-
-                    </div>
-                   
-                </div>
                
                 <div class="field" [ngClass]="{invalid: registerForm.get('email')?.errors && registerForm.get('email')?.touched}">
                     <i class="fa fa-solid fa-envelope"></i>
