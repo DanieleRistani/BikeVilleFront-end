@@ -1,8 +1,8 @@
 <section class="home container-fluid">
-    <h2 class="text-center display-1">Home</h2>
-    <div class="row d-flex justify-content-center mt-5">
-        <div class="col-3 d-flex flex-column align-items-center" *ngFor="let category of categories">
-            <a  routerLink="/categories/{{category.productCategoryId}}"><button class="btn btn-dark mb-3"><p class="text-center ">{{category.name}}</p></button></a>  
+    <div class="row d-flex h-100 justify-content-center">
+        <div class="col-3 h-100 d-flex justify-content-center align-items-center custom-col-home{{category.productCategoryId}}" *ngFor="let category of categories">
+            <div class="overlay "></div>
+            <a class=" text-decoration-none" routerLink="/categories/{{category.productCategoryId}}"><p class="text-decoration-none text-custom-secondary text-custom-font display-6">{{category.name}}</p></a>  
         </div>
        
     </div>
