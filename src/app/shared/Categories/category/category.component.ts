@@ -21,7 +21,7 @@ export class CategoryComponent implements OnInit {
   products : any[]=[]
   filterProducts :any
   showFilterProducts : boolean=false
-  
+  price : number=0
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -45,7 +45,13 @@ export class CategoryComponent implements OnInit {
     });
 
   }
-  
+  getProductsByPrice(){
+    this.showFilterProducts=true
+    this.filterProducts= this.products.filter((product: any) => product.
+    listPrice
+     <= this.price)
+    console.log(this.filterProducts);
+  }
   getProductsSearched() {
     this.showFilterProducts=true
     this.filterProducts= this.products.filter((product: any) => product.name.toLowerCase().includes(this.search.toLowerCase()))

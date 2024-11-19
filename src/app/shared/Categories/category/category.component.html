@@ -41,19 +41,7 @@
                     </div>
                 </div>
             
-                <!-- Color Accordion Item -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                            Color
-                        </button>
-                    </h2>
-                    <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body bg-secondary">
-                            <p>COLOR</p>
-                        </div>
-                    </div>
-                </div>
+             
             
                 <!-- Price Accordion Item -->
                 <div class="accordion-item">
@@ -64,7 +52,8 @@
                     </h2>
                     <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body bg-secondary">
-                            <p>PRICE</p>
+                            <label for="customRange1" class="form-label">{{price+"€"}}</label>
+                            <input type="range" class="form-range" id="customRange1" [(ngModel)]="price" (input)="getProductsByPrice()" max="10000">
                         </div>
                     </div>
                 </div>
