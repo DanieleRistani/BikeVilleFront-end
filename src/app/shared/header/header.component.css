@@ -90,7 +90,7 @@ object-fit: cover;
     margin-top: 300px;
     z-index: 2;
     height: 80px;
-    width: 240px;
+    width: 100%;
     position: relative;
     background-color: transparent;
     cursor: pointer;

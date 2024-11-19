@@ -14,6 +14,13 @@ color: var(--secondary);
 
 }
 
+.bg-custom-primary{
+background-color: var(--primary);
+}
+
+.bg-custom-secondary{
+background-color: var(--secondary);
+}
 
 
 /* Font custom */

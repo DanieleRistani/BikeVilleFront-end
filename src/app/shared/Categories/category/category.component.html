@@ -2,13 +2,95 @@
     <h2 class="text-center display-1">{{category.name}}</h2>
     <div class="row justify-content-center">
         <div class="col-4">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+  
+                <!-- Search Accordion Item -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Search
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body bg-secondary">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <input type="text" placeholder="Search" class="form-control w-75 shadow-none" [(ngModel)]="search">
+                                <button class="btn btn-dark ms-3" (click)="getProductsSearched()">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Sub Category Accordion Item -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            Sub Category
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body bg-secondary d-flex flex-column h-100">
+                            <label><input type="radio" name="category" (click)="setCategoryRadio(null)">Null</label>
+                            <label *ngFor="let category of category.inverseParentProductCategory.$values">
+                                <input type="radio" name="category" (click)="setCategoryRadio(category.productCategoryId)">
+                                {{category.name}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Color Accordion Item -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                            Color
+                        </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body bg-secondary">
+                            <p>COLOR</p>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Price Accordion Item -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                            Price
+                        </button>
+                    </h2>
+                    <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body bg-secondary">
+                            <p>PRICE</p>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+            
 
-            <ul class="list-group w-100">
-                <li class="list-group-item" *ngFor="let subCategories of category.inverseParentProductCategory.$values">
-                  {{subCategories.name}}
+
+
+
+            
+        </div>
+        <div class="col-8">
+
+            <ul class="list-group w-100" *ngIf="showFilterProducts">
+                <li class="list-group-item" *ngFor="let product of filterProducts" >
+                    {{product.name}}
                 </li>
             </ul>
-
+            <ul class="list-group w-100" *ngIf="!showFilterProducts">
+                <li class="list-group-item" *ngFor="let product of products">
+                    {{product.name}}
+                </li>
+            </ul>
+                       
+            
         </div>
        
     </div>
