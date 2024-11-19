@@ -52,12 +52,7 @@ export class CategoryComponent implements OnInit {
      <= this.price)
     console.log(this.filterProducts);
   }
-  getProductsSearched() {
-    this.showFilterProducts=true
-    this.filterProducts= this.products.filter((product: any) => product.name.toLowerCase().includes(this.search.toLowerCase()))
-    console.log(this.filterProducts);
-  
-  }
+ 
   setCategoryRadio(id: any){
     if(id==null){
      this.showFilterProducts=false

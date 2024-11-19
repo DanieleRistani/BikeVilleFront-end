@@ -19,7 +19,7 @@ export class NavBarComponent implements OnInit{
   categories: any[]= [];
   show !:boolean;
   isNight: boolean = window.localStorage.getItem('isNight') == 'true' ? true : false
- 
+  search : string=""
   
   ngOnInit(): void {
 

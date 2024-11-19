@@ -56,3 +56,22 @@ input[type=radio] {
     cursor: pointer;
   }
  
+
+  input[type="range"]::-webkit-slider-thumb {
+    background-color: #ff5722; /* Cambia il colore del pallino */
+    -webkit-appearance: none;  /* Rimuove lo stile predefinito */
+    appearance: none;          /* Rimuove lo stile predefinito */
+}
+
+
+
+
+
+
+
+
+
+
+
+  
+  
