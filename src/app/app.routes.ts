@@ -3,10 +3,18 @@ import { HomeComponent } from './shared/home/home.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CategoryComponent } from './shared/Categories/category/category.component';
+import { NotFoundComponent } from './404/not-found/not-found.component';
 
 export const routes: Routes = [
     {path: '',component:HomeComponent},
     {path: 'register',component:RegisterComponent},
     {path: 'login',component:LoginComponent},
-    {path: 'categories/:id', component: CategoryComponent}
+    {path: 'categories/:id', component: CategoryComponent},
+
+
+
+
+
+    {path:"404NotFound",component:NotFoundComponent},
+    {path:"**",redirectTo:"/404NotFound"}
 ];
