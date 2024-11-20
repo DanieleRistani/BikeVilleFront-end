@@ -1,18 +1,18 @@
 <nav class="sticky navbar z-3">
 
 	<a class=" ms-2 nav__link navbar-brand text-white d-flex justify-content-start align-items-center"
-		routerLink="/"><span class="display-5 ms-4 text-custom-font text-logo">Bike Ville</span></a>
+		routerLink="/"><span class="display-6 ms-4 text-custom-font text-logo">Bike Ville</span></a>
 
 
 	<input type="checkbox" id="nav" class="hidden" [(ngModel)]="show" />
 	<label for="nav" class="nav__open"><i></i><i></i><i></i></label>
 	<div class="nav d-md-inline d-lg-inline " [ngClass]="{'d-none': !show}">
-		<ul class="nav__items  d-flex justify-content-center align-items-center">
-			<li class="nav__item"><a class="nav__link">
-					<div class="searchBox">
+		<ul class="nav__items  d-md-flex d-lg-flex align-items-center">
+			<li class="nav__item"><a class="nav__link d-flex justify-content-center">
+					<div class="searchBox me-4">
 
-						<input class="searchInput" type="text" name="" placeholder="Search something" [(ngModel)]="search">
-						<a class="searchButton" routerLink="/search/{{search}}">
+						<input class="searchInput" type="text" name="" placeholder="Search" [(ngModel)]="search">
+						<a class="searchButton" routerLink="/search/{{search}}" (click)="isShow()">
 							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 29 29"
 								fill="none">
 								<g clip-path="url(#clip0_2_17)">
@@ -52,7 +52,7 @@
 						</a>
 					</div>
 				</a></li>
-			<li class="nav__item dropdown">
+			<li class="nav__item dropdown me-4">
 				<a class="nav__link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 					Categories
 				</a>
@@ -62,14 +62,16 @@
 							(click)="isShow()">{{category.name}}</a></li>
 				</ul>
 			</li>
-			<li class="nav__item me-5"><a class="nav__link" routerLink="/" (click)="isShow()">Home</a></li>
+			<li class="nav__item me-4"><a class="nav__link" routerLink="/" (click)="isShow()">Home</a></li>
 
 
+            <div class="d-md-flex d-lg-flex justify-content-center me-1">
 
-			<li class="nav__item "><a class="nav__link" id="register" routerLink="/register"
-					(click)="isShow()">Register</a></li>
-			<li class="nav__item "><a class="nav__link" id="login" routerLink="/login" (click)="isShow()">Login</a></li>
-			<li class="nav__item ms-5 d-none"><a class="nav__link" id="logout" (click)="isShow()">Login</a></li>
+				<li class="nav__item me-2"><a class="nav__link" id="register" routerLink="/register"
+						(click)="isShow()">Register</a></li>
+				<li class="nav__item "><a class="nav__link" id="login" routerLink="/login" (click)="isShow()">Login</a></li>
+				<li class="nav__item d-none"><a class="nav__link" id="logout" (click)="isShow()">Logout</a></li>
+			</div>
 
 		</ul>
 	</div>

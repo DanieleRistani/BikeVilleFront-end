@@ -15,6 +15,7 @@ object-fit: cover;
 }
 
 .h1-custom{
+  margin-left: 20px;
     z-index: 2;
     color:#333;
     text-shadow: #f57500 4px 0 10px;
@@ -119,7 +120,7 @@ object-fit: cover;
     margin-top: 300px;
     z-index: 2;
     height: 80px;
-    width: 240px;
+    width: 400px;
     position: relative;
     background-color: transparent;
     cursor: pointer;
@@ -148,7 +149,7 @@ object-fit: cover;
     margin-top: 300px;
     z-index: 2;
     height: 60px;
-    width: 220px;
+    width: 400px;
     position: relative;
     background-color: transparent;
     cursor: pointer;

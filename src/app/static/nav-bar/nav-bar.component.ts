@@ -19,10 +19,9 @@ export class NavBarComponent implements OnInit{
   categories: any[]= [];
   show !:boolean;
   isNight: boolean = window.localStorage.getItem('isNight') == 'true' ? true : false
-  search : string=""
+  search !: string
   
   ngOnInit(): void {
-
     this.categoryService.getCategories().subscribe((data: any) => {
       this.categories = data.$values.filter((item : any) => !item.$ref);  
     })
