@@ -1,5 +1,6 @@
 <section class="home container-fluid" >
     <div class="row d-flex h-100 justify-content-center">
+        <button class="btn btn-dark" (click)="getProductsByFilter()">show</button>
         <ul class="list-group col-6 ">
             <li class="list-group-item" *ngFor="let product of productsFiltered">{{product.name}}</li>
         </ul>

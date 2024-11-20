@@ -13,29 +13,35 @@ import { NgFor } from '@angular/common';
 export class SearchProductsComponent implements OnInit {
 constructor(private productService: ProductsService,private route: ActivatedRoute){}
 
-productsFiltered: any
+filter : string='';
+productsFiltered: any[]=[]
 products:any[]=[]
-ngOnInit(): void {    
+ngOnInit(): void {  
+  this.getProducts(); 
   this.route.paramMap.subscribe((params: ParamMap) => {
-    this.getProductsByFilter(params.get('filter')!);
+    // this.getProductsByFilter(params.get('filter')!);
+    this.filter=params.get('filter')!
   });  
+ 
+  
 }
-getProductsByFilter(filter: string){
-  console.log(filter);
-  this.getProducts();
+
+getProductsByFilter(){
+  
+  this.productsFiltered=this.products.filter((product: any) =>product.name.toLowerCase().includes(this.filter.toLowerCase()));
+  console.log(this.filter);
   console.log(this.products);
-  this.productsFiltered=this.products.filter((product: any) => product.name.toLowerCase().includes(filter.toLowerCase()));
   console.log(this.productsFiltered);
-  
-  
+
 }
+
 
 
 
 getProducts(){   
-  this.productService.getProducts().subscribe((data: any) => {data.$values.filter((cat :any) => !cat.$ref).forEach((category: any) => {category.inverseParentProductCategory.$values.forEach((category: any) => {category.products.$values.forEach((product: any) => {this.products.push(product)})})})});
- 
-}
+   this.products=[]
+   this.productService.getProducts().subscribe((data: any) => {data.$values.filter((cat :any) => !cat.$ref).forEach((category: any) => {category.inverseParentProductCategory.$values.forEach((category: any) => {category.products.$values.forEach((product: any) => {this.products.push(product)})})})});
+ }
 }
 
 
