@@ -1,5 +1,5 @@
 import { Component,  OnInit,} from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import {  RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms'
 import { NgClass } from '@angular/common';
 import { CategoriesService } from '../../service/category/categories.service';
@@ -16,7 +16,7 @@ import { NgIf } from '@angular/common';
 export class NavBarComponent implements OnInit{
   
   
- constructor(private categoryService: CategoriesService,private loginService: LoginService,private router: Router ) { }
+ constructor(private categoryService: CategoriesService,private loginService: LoginService) { }
  
 
   isAuth!:Boolean 
@@ -76,8 +76,8 @@ export class NavBarComponent implements OnInit{
   logout(){
     this.isShow()
     this.loginService.runLogout()
-    // this.router.navigate([''])
-    // window.location.reload();
+    window.location.replace('/');
+    
   }
 
 }

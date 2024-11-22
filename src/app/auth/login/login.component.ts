@@ -54,8 +54,7 @@ runLogin(){
           console.log('Login effettuato ');
           this.setTokenLocalStorage(response.body.token)
           this.loginService.setHeaderTokenAuth(response.body.token)
-          // window.location.reload();
-          // this.router.navigate([''])
+          window.location.replace('/');         
           break;
         case HttpStatusCode.NoContent:
           console.log('Senza risposta');
