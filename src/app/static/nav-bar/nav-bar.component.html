@@ -66,11 +66,12 @@
 
 
             <div class="d-md-flex d-lg-flex justify-content-center me-1">
-
-				<li class="nav__item me-2"><a class="nav__link" id="register" routerLink="/register"
-						(click)="isShow()">Register</a></li>
-				<li class="nav__item "><a class="nav__link" id="login" routerLink="/login" (click)="isShow()">Login</a></li>
-				<li class="nav__item d-none"><a class="nav__link" id="logout" (click)="isShow()">Logout</a></li>
+                  <div *ngIf="!isAuth" class="d-flex justify-content-center me-1"> 
+					  <li class="nav__item me-2"><a class="nav__link" id="register" routerLink="/register"
+							  (click)="isShow()">Register</a></li>
+					  <li class="nav__item "><a class="nav__link" id="login" routerLink="/login" (click)="isShow()" >Login</a></li>
+				  </div>
+				<li class="nav__item "><a class="nav__link" id="logout" (click)="logout()" *ngIf="isAuth">Logout</a></li>
 			</div>
 
 		</ul>

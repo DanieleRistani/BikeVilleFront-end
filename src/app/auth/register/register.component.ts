@@ -5,6 +5,7 @@ import { NgIf, NgFor } from '@angular/common';
 import { FormBuilder } from '@angular/forms';
 import { RegisterService } from '../../service/auth/register.service';
 import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -16,7 +17,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private registerService: RegisterService) { }
   registerForm!: FormGroup
-
+  
   showPassword: boolean = false;
 
   ngOnInit(): void {

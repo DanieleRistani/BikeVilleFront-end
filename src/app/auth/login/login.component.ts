@@ -1,12 +1,73 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../service/auth/login.service';
+import {  HttpStatusCode } from '@angular/common/http';
+import { Credentials } from '../../Entity/Credentials';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { NgClass } from '@angular/common';
+import { NgIf } from '@angular/common';
 
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule,FormsModule,NgClass,NgIf],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+constructor(private loginService: LoginService,private formBuilder: FormBuilder,private router: Router){}
 
+
+
+
+credentials!: Credentials
+showPassword: boolean = false
+
+loginForm!: FormGroup
+ 
+
+
+ngOnInit(): void {
+  
+  this.loginForm = this.formBuilder.group({
+    email: new FormControl(null, [Validators.required]),
+    password: new FormControl(null, [Validators.required]),
+     
+  })
+}
+
+
+
+runLogin(){
+  this.credentials = new Credentials(this.loginForm.value.email, this.loginForm.value.password);
+  
+  this.loginService.loginPost(this.credentials).subscribe({
+    
+    next: (response: any) => {
+      console.log(response.status);
+      
+      switch (response.status) {
+        case HttpStatusCode.Ok:
+          console.log('Login effettuato ');
+          this.setTokenLocalStorage(response.body.token)
+          this.loginService.setHeaderTokenAuth(response.body.token)
+          // window.location.reload();
+          // this.router.navigate([''])
+          break;
+        case HttpStatusCode.NoContent:
+          console.log('Senza risposta');
+          break;
+      }
+    },
+  });
+  this.loginForm.reset();
+}
+
+
+setTokenLocalStorage( token : string){
+localStorage.setItem('token',token); 
+}
 }

@@ -1,21 +1,25 @@
-import { Component,  OnInit} from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component,  OnInit,} from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms'
 import { NgClass } from '@angular/common';
 import { CategoriesService } from '../../service/category/categories.service';
 import { NgFor } from '@angular/common';
+import { LoginService } from '../../service/auth/login.service';
+import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [RouterLink,FormsModule,NgClass,NgFor],
+  imports: [RouterLink,FormsModule,NgClass,NgFor,NgIf],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent implements OnInit{
   
   
- constructor(private categoryService: CategoriesService) { }
+ constructor(private categoryService: CategoriesService,private loginService: LoginService,private router: Router ) { }
+ 
 
+  isAuth!:Boolean 
   categories: any[]= [];
   show !:boolean;
   isNight: boolean = window.localStorage.getItem('isNight') == 'true' ? true : false
@@ -24,6 +28,9 @@ export class NavBarComponent implements OnInit{
   ngOnInit(): void {
     this.categoryService.getCategories().subscribe((data: any) => {
       this.categories = data.$values.filter((item : any) => !item.$ref);  
+      this.isAuth=localStorage.getItem('token') ? true : false
+      console.log(this.isAuth);
+      
     })
 
 
@@ -66,5 +73,11 @@ export class NavBarComponent implements OnInit{
     }
   }
 
+  logout(){
+    this.isShow()
+    this.loginService.runLogout()
+    // this.router.navigate([''])
+    // window.location.reload();
+  }
 
 }
