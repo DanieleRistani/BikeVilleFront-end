@@ -18,9 +18,8 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
-constructor(private loginService: LoginService,private formBuilder: FormBuilder,private router: Router){}
 
-
+  constructor(private loginService: LoginService,private formBuilder: FormBuilder,private router: Router){}
 
 
 credentials!: Credentials
@@ -40,7 +39,6 @@ ngOnInit(): void {
 }
 
 
-
 runLogin(){
   this.credentials = new Credentials(this.loginForm.value.email, this.loginForm.value.password);
   
@@ -54,7 +52,7 @@ runLogin(){
           console.log('Login effettuato ');
           this.setTokenLocalStorage(response.body.token)
           this.loginService.setHeaderTokenAuth(response.body.token)
-          window.location.replace('/');         
+          // window.location.replace('/');         
           break;
         case HttpStatusCode.NoContent:
           console.log('Senza risposta');
@@ -67,6 +65,7 @@ runLogin(){
 
 
 setTokenLocalStorage( token : string){
-localStorage.setItem('token',token); 
+  localStorage.setItem('token',token); 
 }
+
 }

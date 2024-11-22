@@ -6,6 +6,7 @@ import { CategoriesService } from '../../service/category/categories.service';
 import { NgFor } from '@angular/common';
 import { LoginService } from '../../service/auth/login.service';
 import { NgIf } from '@angular/common';
+import { jwtDecode } from 'jwt-decode';
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
@@ -24,14 +25,22 @@ export class NavBarComponent implements OnInit{
   show !:boolean;
   isNight: boolean = window.localStorage.getItem('isNight') == 'true' ? true : false
   search !: string
-  
+  authUser : any
+  jwtDecode :any
+
   ngOnInit(): void {
+
     this.categoryService.getCategories().subscribe((data: any) => {
-      this.categories = data.$values.filter((item : any) => !item.$ref);  
-      this.isAuth=localStorage.getItem('token') ? true : false
-      console.log(this.isAuth);
-      
+      this.categories = data.$values.filter((item : any) => !item.$ref);   
     })
+
+    this.isAuth=localStorage.getItem('token') ? true : false
+    if(this.isAuth){
+      this.jwtDecode=jwtDecode(localStorage.getItem('token')||'')
+      this.loginService.getAuthUser(this.jwtDecode.unique_name).subscribe((data: any) => {
+        this.authUser=data
+      });
+    }
 
 
     this.show=false
