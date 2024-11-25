@@ -16,8 +16,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.categoryService.getCategories().subscribe((data: any) => {
     this.categories = data.$values.filter((item : any) => !item.$ref); 
-    console.log(this.categories);
-   
+
     })
    
            

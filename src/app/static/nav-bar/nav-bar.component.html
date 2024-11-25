@@ -9,7 +9,7 @@
 	<div class="nav d-md-inline d-lg-inline " [ngClass]="{'d-none': !show}">
 		<ul class="nav__items  d-md-flex d-lg-flex align-items-center">
 			<li class="nav__item"><a class="nav__link d-flex justify-content-center">
-					<div class="searchBox me-3 ">
+					<div class="searchBox me-5 ">
 
 						<input class="searchInput" type="text" name="" placeholder="Search" [(ngModel)]="search">
 						<a class="searchButton" routerLink="/search/{{search}}" (click)="isShow()">
@@ -52,7 +52,7 @@
 						</a>
 					</div>
 				</a></li>
-			<li class="nav__item dropdown me-4">
+			<li class="nav__item dropdown me-2">
 				<a class="nav__link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 					Categories
 				</a>
@@ -72,8 +72,8 @@
 					  <li class="nav__item "><a class="nav__link" id="login" routerLink="/login" (click)="isShow()" >Login</a></li>
 				  </div>
 				  <div class="d-flex justify-content-center align-items-center" *ngIf="isAuth"> 
-					  <li class="nav__item me-2"><a class="nav__link" id="logout"  >{{authUser.firstName}}</a></li>
-					  <li class="nav__item mt-1"><a class="nav__link" id="logout" (click)="logout()" *ngIf="isAuth"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+					
+					  <li class="nav__item mt-1"><a class="nav__link" id="logout" type="button" (click)="logout()" *ngIf="isAuth">Logout<img src="assets/logout.gif" alt="" class="custom-logout mb-2 ms-1" aria-details="logout" ></a></li>
 				  </div>
 			</div>
 
@@ -102,3 +102,4 @@
 		</div>
 	</div>
 </label>
+
