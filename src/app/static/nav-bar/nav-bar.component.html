@@ -9,7 +9,7 @@
 	<div class="nav d-md-inline d-lg-inline " [ngClass]="{'d-none': !show}">
 		<ul class="nav__items  d-md-flex d-lg-flex align-items-center">
 			<li class="nav__item"><a class="nav__link d-flex justify-content-center">
-					<div class="searchBox me-5 ">
+					<div class="searchBox me-5 ms-5 ms-md-0 ms-lg-0 ms-xl-0">
 
 						<input class="searchInput" type="text" name="" placeholder="Search" [(ngModel)]="search">
 						<a class="searchButton" routerLink="/search/{{search}}" (click)="isShow()">
