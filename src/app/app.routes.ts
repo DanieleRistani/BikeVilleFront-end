@@ -14,8 +14,8 @@ export const routes: Routes = [
     {path: 'login',component:LoginComponent},
     {path: 'categories/:id',component: CategoryComponent},
     {path: 'search/:filter',component: SearchProductsComponent},
-    {path: 'userProfile/:id',component: UserComponent},
-    {path: 'adminHUB/:id',component: AdminComponent},
+    {path: 'userProfile/:email',component: UserComponent},
+    {path: 'adminHUB/:email',component: AdminComponent},
 
 
 

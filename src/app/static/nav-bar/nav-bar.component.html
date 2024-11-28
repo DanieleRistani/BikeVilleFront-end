@@ -126,13 +126,13 @@
 					<li *ngIf="authUser.role.trim() == 'ADMIN'">
 						<button>
 							<a class="nav__link text-dark" id="logout" type="button"
-							 routerLink="/adminHUB/{{authUser.userId}}" >Admin HUB</a>
+							 routerLink="/adminHUB/{{authUser.emailAddress}}" >Admin HUB</a>
 						</button>
 					</li>
 					<li>
 						<button>
 							<a class="nav__link text-dark" id="logout" type="button"
-							 routerLink="/userProfile/{{authUser.userId}}" >Profilo</a>
+							 routerLink="/userProfile/{{authUser.emailAddress}}" >Profilo</a>
 						</button>
 					</li>
 					<li>

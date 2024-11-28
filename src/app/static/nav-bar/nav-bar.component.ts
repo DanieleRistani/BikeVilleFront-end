@@ -28,11 +28,11 @@ export class NavBarComponent implements OnInit{
   
   this.router.events.subscribe((event) => {
     if (event instanceof NavigationStart) {
-     console.log(this.authUser);
+     
      
       if (localStorage.getItem('token')) {
          
-        
+
         if(localStorage.getItem('token') && !this.loginService.checkValidToken(localStorage.getItem('token')||'') ){
           this.logout()
           this.isAuth=false
@@ -105,7 +105,7 @@ export class NavBarComponent implements OnInit{
   logout(){
     this.isShow()
     this.loginService.runLogout()
-    window.location.replace('/');
+   
     
   }
 

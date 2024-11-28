@@ -14,7 +14,7 @@ export class LoginService{
  
   }
  
-  jwtToken!: string 
+ 
   isAuth!:Boolean
   headersAuth = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -47,6 +47,7 @@ export class LoginService{
       'Content-Type': 'application/json',
       responseType: 'text',
     });
+    window.location.replace('/');
   }
   setHeaderTokenAuth(token:string){
     this.headersAuth=this.headersAuth.set('Authorization', 'Bearer ' + token)
