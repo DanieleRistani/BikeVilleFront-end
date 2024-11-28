@@ -28,7 +28,8 @@ export class NavBarComponent implements OnInit{
   
   this.router.events.subscribe((event) => {
     if (event instanceof NavigationStart) {
-
+     console.log(this.authUser);
+     
       if (localStorage.getItem('token')) {
          
         

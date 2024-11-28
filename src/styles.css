@@ -198,7 +198,15 @@ body {
 }
 
 
+.custom-user-burger{
+		z-index: 99;
+		position: fixed;
+		top:90px;
+		right: 10px;
+}
+
 @media (min-width: 905px) {
+	
 	#register{
 		margin-left: 0;
 	}

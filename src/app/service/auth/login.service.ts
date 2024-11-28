@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Credentials } from '../../Entity/Credentials';
 import { Observable } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
-import { NavigationStart, Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +24,13 @@ export class LoginService{
 
  checkValidToken(token: string) {
   const exp=jwtDecode(token).exp||0;
-  if(exp > Math.floor(Date.now() / 1000)){
-   return true
+  console.log(exp);
+  console.log(Math.floor(Date.now() / 1000));
+
+  if(exp < Math.floor(Date.now() / 1000)){
+   return false
   }else{
-    return false
+    return true
   }
  }
  

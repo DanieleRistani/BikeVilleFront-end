@@ -5,6 +5,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { CategoryComponent } from './shared/Categories/category/category.component';
 import { NotFoundComponent } from './404/not-found/not-found.component';
 import { SearchProductsComponent } from './shared/search/search-products/search-products.component';
+import { AdminComponent } from './auth/admin/admin.component';
+import { UserComponent } from './auth/user/user.component';
 
 export const routes: Routes = [
     {path: '',component:HomeComponent},
@@ -12,7 +14,8 @@ export const routes: Routes = [
     {path: 'login',component:LoginComponent},
     {path: 'categories/:id',component: CategoryComponent},
     {path: 'search/:filter',component: SearchProductsComponent},
-
+    {path: 'userProfile/:id',component: UserComponent},
+    {path: 'adminHUB/:id',component: AdminComponent},
 
 
 
