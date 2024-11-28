@@ -1,5 +1,5 @@
 import { Component,  OnInit,} from '@angular/core';
-import {  RouterLink } from '@angular/router';
+import {  NavigationStart, Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms'
 import { NgClass } from '@angular/common';
 import { CategoriesService } from '../../service/category/categories.service';
@@ -16,10 +16,6 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class NavBarComponent implements OnInit{
   
-  
- constructor(private categoryService: CategoriesService,private loginService: LoginService) { }
- 
-
   isAuth!:Boolean 
   categories: any[]= [];
   show !:boolean;
@@ -27,6 +23,28 @@ export class NavBarComponent implements OnInit{
   search !: string
   authUser : any
   jwtDecode :any
+  
+ constructor(private categoryService: CategoriesService,private loginService: LoginService,private router: Router) {
+  
+  this.router.events.subscribe((event) => {
+    if (event instanceof NavigationStart) {
+
+      if (localStorage.getItem('token')) {
+         
+        
+        if(localStorage.getItem('token') && !this.loginService.checkValidToken(localStorage.getItem('token')||'') ){
+          this.logout()
+          this.isAuth=false
+          this.authUser=null
+          window.location.replace('/');
+        }
+      }
+    }
+  });
+
+  }
+ 
+
 
   ngOnInit(): void {
 
@@ -35,6 +53,7 @@ export class NavBarComponent implements OnInit{
     })
 
     this.isAuth=localStorage.getItem('token') ? true : false
+    
     if(this.isAuth){
       this.jwtDecode=jwtDecode(localStorage.getItem('token')||'')
       this.loginService.getAuthUser(this.jwtDecode.unique_name).subscribe((data: any) => {

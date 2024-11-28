@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
 import { NgIf } from '@angular/common';
 
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -19,14 +19,16 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService: LoginService,private formBuilder: FormBuilder,private router: Router){}
+  constructor(private loginService: LoginService,private formBuilder: FormBuilder,private router: Router){
+    
+  }
 
 
 credentials!: Credentials
 showPassword: boolean = false
 
 loginForm!: FormGroup
- 
+jwtToken!: string
 
 
 ngOnInit(): void {
@@ -50,6 +52,7 @@ runLogin(){
       switch (response.status) {
         case HttpStatusCode.Ok:
           console.log('Login effettuato ');
+          this.jwtToken = response.body.token
           this.setTokenLocalStorage(response.body.token)
           this.loginService.setHeaderTokenAuth(response.body.token)
           window.location.replace('/');         
