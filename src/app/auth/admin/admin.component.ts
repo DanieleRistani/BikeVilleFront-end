@@ -24,7 +24,7 @@ export class AdminComponent implements OnInit {
     this.jwtDecode=jwtDecode(localStorage.getItem('token')!)
     this.route.paramMap.subscribe((params: ParamMap) => {
       if(this.jwtDecode.unique_name != params.get('email') || this.jwtDecode.role != 'ADMIN'){
-        
+        this.loginService.runLogout()
       }else{
         this.loginService.getAuthUser(params.get('email')!).subscribe((data: any) => {
           this.authUser=data
