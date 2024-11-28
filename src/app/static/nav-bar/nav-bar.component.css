@@ -222,10 +222,7 @@
   }
   
   .searchButton {
-    color: white;
-    height: 27px;
-    border-radius: 50%;
-    background:#f57500;
+    
     border: 0;
    
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
@@ -461,6 +458,13 @@
 }
 
 
+.searchIcon{
+  height:26px ;
+  width:26px;
+  font-size: 15px;
+  background-color: #f57500;
+  border-radius: 50%;
+}
 
 
 
