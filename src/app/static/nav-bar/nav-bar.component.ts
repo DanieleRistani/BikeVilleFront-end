@@ -7,6 +7,7 @@ import { NgFor } from '@angular/common';
 import { LoginService } from '../../service/auth/login.service';
 import { NgIf } from '@angular/common';
 import { jwtDecode } from 'jwt-decode';
+import { CartService } from '../../service/cart/cart.service';
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
@@ -25,10 +26,12 @@ export class NavBarComponent implements OnInit{
   jwtDecode :any
   countCartProduct !: number
   
- constructor(private categoryService: CategoriesService,private loginService: LoginService,private router: Router) {
+ constructor(private categoryService: CategoriesService,private loginService: LoginService,private router: Router,public cartService: CartService) {
+  
   
   this.router.events.subscribe((event) => {
     
+
     if (event instanceof NavigationStart) {
    
      
@@ -50,7 +53,6 @@ export class NavBarComponent implements OnInit{
 
   
 
-
   ngOnInit(): void {
 
     this.categoryService.getCategories().subscribe((data: any) => {
@@ -59,7 +61,7 @@ export class NavBarComponent implements OnInit{
 
     this.isAuth=localStorage.getItem('token') ? true : false
     
-    this.countCartProduct=localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')||'').length : 0
+    this.countCartProduct=this.cartService.cartCount.getValue()
 
     if(this.isAuth){
       this.jwtDecode=jwtDecode(localStorage.getItem('token')||'')
@@ -112,7 +114,6 @@ export class NavBarComponent implements OnInit{
     this.isShow()
     this.loginService.runLogout()
    
-    
   }
 
 }

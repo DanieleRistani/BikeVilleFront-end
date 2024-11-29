@@ -67,7 +67,10 @@ export class CategoryComponent implements OnInit {
 
   addProductToCart(productId : number){
     this.cartService.addToCart(productId)
-    window.location.reload();
+    this.cartService.cartCount.next(this.cartService.cartCount.getValue()+1)
+    
+    
+    
   }
 }
 

@@ -93,7 +93,7 @@
 					<li>
 						<button>
 							<a class="nav__link text-dark" id="logout" type="button"
-							 routerLink="" >Carrello <i class="fa-solid fa-cart-shopping p-0"></i><div class="cartNumber">{{countCartProduct}}</div></a>
+							 routerLink="" >Carrello <i class="fa-solid fa-cart-shopping p-0"></i><div class="cartNumber">{{cartService.cartCount.getValue()}}</div></a>
 						</button>
 					</li>
 					<li *ngIf="authUser.role.trim() == 'ADMIN'">
