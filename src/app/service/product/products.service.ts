@@ -8,7 +8,8 @@ export class ProductsService {
 
   constructor(private http: HttpClient, private categoryService: CategoriesService) { }
 
-  getProducts() {
-    return this.categoryService.getCategories();
+  getProducts(filter : string) {
+    return this.http.get('https://localhost:7167/Products/Filter/'+filter);
   }
+  
 }
