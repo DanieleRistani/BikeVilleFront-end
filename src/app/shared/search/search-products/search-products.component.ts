@@ -3,6 +3,7 @@ import { ProductsService } from '../../../service/product/products.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
+import { CartService } from '../../../service/cart/cart.service';
 @Component({
   selector: 'app-search-products',
   standalone: true,
@@ -11,7 +12,7 @@ import { NgFor } from '@angular/common';
   styleUrl: './search-products.component.css'
 })
 export class SearchProductsComponent implements OnInit {
-constructor(private productService: ProductsService,private route: ActivatedRoute){}
+constructor(private productService: ProductsService,private route: ActivatedRoute,private cartService: CartService){}
 
 
 productsFiltered : any
@@ -33,10 +34,10 @@ getProducts(filter : string) {
 }
 
 
-
-
-
-
+addProductToCart(productId : number){
+  this.cartService.addToCart(productId)
+  this.cartService.cartCount.next(this.cartService.cartCount.getValue()+1)
+}
 
 }
 
