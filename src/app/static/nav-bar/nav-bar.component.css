@@ -466,6 +466,15 @@
   border-radius: 50%;
 }
 
-
+.cartNumber{
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: red;
+  position: relative;
+  top: -30px;
+  left: 80px;
+  font-size: 12px;
+}
 
   

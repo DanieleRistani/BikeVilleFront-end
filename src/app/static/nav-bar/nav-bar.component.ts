@@ -1,4 +1,4 @@
-import { Component,  OnInit,} from '@angular/core';
+import { Component, OnInit,  } from '@angular/core';
 import {  NavigationStart, Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms'
 import { NgClass } from '@angular/common';
@@ -23,11 +23,14 @@ export class NavBarComponent implements OnInit{
   search !: string
   authUser : any
   jwtDecode :any
+  countCartProduct !: number
   
  constructor(private categoryService: CategoriesService,private loginService: LoginService,private router: Router) {
   
   this.router.events.subscribe((event) => {
+    
     if (event instanceof NavigationStart) {
+   
      
      
       if (localStorage.getItem('token')) {
@@ -44,7 +47,8 @@ export class NavBarComponent implements OnInit{
   });
 
   }
- 
+
+  
 
 
   ngOnInit(): void {
@@ -55,6 +59,8 @@ export class NavBarComponent implements OnInit{
 
     this.isAuth=localStorage.getItem('token') ? true : false
     
+    this.countCartProduct=localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')||'').length : 0
+
     if(this.isAuth){
       this.jwtDecode=jwtDecode(localStorage.getItem('token')||'')
       this.loginService.getAuthUser(this.jwtDecode.unique_name).subscribe((data: any) => {
@@ -110,3 +116,4 @@ export class NavBarComponent implements OnInit{
   }
 
 }
+

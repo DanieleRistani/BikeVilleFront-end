@@ -3,6 +3,7 @@ import { CategoriesService } from '../../../service/category/categories.service'
 import { ActivatedRoute, ParamMap} from '@angular/router';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CartService } from '../../../service/cart/cart.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class CategoryComponent implements OnInit {
 
-  constructor(private categoryService: CategoriesService, private route: ActivatedRoute) { }
+  constructor(private categoryService: CategoriesService, private route: ActivatedRoute,private cartService: CartService) { }
   
   search : string=""
   category!: any
@@ -62,6 +63,11 @@ export class CategoryComponent implements OnInit {
      this.showFilterProducts=true
     }
     
+  }
+
+  addProductToCart(productId : number){
+    this.cartService.addToCart(productId)
+    window.location.reload();
   }
 }
 

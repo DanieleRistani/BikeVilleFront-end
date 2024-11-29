@@ -43,6 +43,7 @@ export class LoginService{
 
   runLogout(){
     localStorage.removeItem("token")
+    localStorage.removeItem("cart")
     this.headersAuth= this.headersAuth = new HttpHeaders({
       'Content-Type': 'application/json',
       responseType: 'text',

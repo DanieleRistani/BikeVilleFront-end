@@ -54,6 +54,7 @@ runLogin(){
           console.log('Login effettuato ');
           this.jwtToken = response.body.token
           this.setTokenLocalStorage(response.body.token)
+          this.setCartLocalStorage()
           this.loginService.setHeaderTokenAuth(response.body.token)
           window.location.replace('/');         
           break;
@@ -69,6 +70,9 @@ runLogin(){
 
 setTokenLocalStorage( token : string){
   localStorage.setItem('token',token); 
+}
+setCartLocalStorage(){
+  localStorage.setItem('cart',JSON.stringify([]));
 }
 
 }

@@ -90,6 +90,12 @@
 			<nav class="popup-window">
 				<legend class="fw-bold text-dark">{{"@ " +authUser.firstName}}</legend>
 				<ul>
+					<li>
+						<button>
+							<a class="nav__link text-dark" id="logout" type="button"
+							 routerLink="" >Carrello <i class="fa-solid fa-cart-shopping p-0"></i><div class="cartNumber">{{countCartProduct}}</div></a>
+						</button>
+					</li>
 					<li *ngIf="authUser.role.trim() == 'ADMIN'">
 						<button>
 							<a class="nav__link text-dark" id="logout" type="button"
