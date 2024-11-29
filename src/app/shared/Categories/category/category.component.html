@@ -89,12 +89,12 @@
             <div class="wrapper" *ngFor="let product of products">
                 <div class="container">
                     <div class="top"></div>
-                    <div class="d-flex justify-content-between align-content-center ">
+                    <div class="mid d-flex justify-content-between align-content-center ">
                         <div class="d-flex flex-column">
                             <p class="product-name text-dark m-0">{{product.name}}</p>
                             <p class="product-price text-dark m-0">{{product.listPrice}}$</p>
                         </div>
-                        <button class="btn"><i class="fa-solid fa-2x fa-cart-plus"></i></button>
+                        <button class="btn" ><i class="fa-solid fa-2x fa-cart-plus" id="addToCart"></i></button>
                     </div>
                 </div>
                 <div class="inside">
