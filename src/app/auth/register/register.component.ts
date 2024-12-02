@@ -5,6 +5,8 @@ import { NgIf, NgFor } from '@angular/common';
 import { FormBuilder } from '@angular/forms';
 import { RegisterService } from '../../service/auth/register.service';
 import { FormsModule } from '@angular/forms';
+import { Credentials } from '../../Entity/Credentials';
+import { LoginService } from '../../service/auth/login.service';
 
 @Component({
   selector: 'app-register',
@@ -15,9 +17,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private registerService: RegisterService) { }
+  constructor(private formBuilder: FormBuilder, private registerService: RegisterService,private loginService: LoginService) { }
   registerForm!: FormGroup
-  
   showPassword: boolean = false;
 
   ngOnInit(): void {
@@ -47,9 +48,9 @@ export class RegisterComponent implements OnInit {
   }
 
   addUser() {
+    
 
     if (this.registerForm.valid) {
-
       this.registerService.register({
         Title: this.registerForm.value.title,
         FirstName: this.registerForm.value.firstName,
@@ -67,5 +68,7 @@ export class RegisterComponent implements OnInit {
       console.log("Invalid Form", this.registerForm.value);
       
     }
+
+    window.location.replace('/login');
   }
 }
