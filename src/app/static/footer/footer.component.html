@@ -78,10 +78,10 @@
 							<p>Non perdere l'opportunità di diventare nostro partner</p>
 						</div>
 						<div class="subscribe-form">
-							<form action="#">
-								<input type="text" placeholder="Email Address">
-								<button><i class="fab fa-telegram-plane"></i></button>
-							</form>
+							
+								<input type="text" placeholder="Email Address" [(ngModel)]="mail">
+								<button (click)="requestAdmin()"><i class="fab fa-telegram-plane"></i></button>
+							
 						</div>
 					</div>
 				</div>
