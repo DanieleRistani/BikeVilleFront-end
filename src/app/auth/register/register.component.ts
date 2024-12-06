@@ -15,6 +15,8 @@ import { Credentials } from '../../Entity/Credentials';
 import { LoginService } from '../../service/auth/login.service';
 import { MailService } from '../../service/mail/mail.service';
 import { RequestEmail } from '../../Entity/RequestEmail';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-register',
@@ -28,7 +30,8 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private registerService: RegisterService,
     private loginService: LoginService,
-    private mailService: MailService
+    private mailService: MailService,
+    private notify: ToastrService
   ) {}
   registerForm!: FormGroup;
   showPassword: boolean = false;
@@ -94,7 +97,7 @@ export class RegisterComponent implements OnInit {
         })
         .subscribe((data: any) => {
           console.log(data);
-
+          this.notify.success('Registrazione effettuata con successo');
           this.emailRequest = {
             toEmail: this.registerForm.value.email,
             subject: 'Conferma successo Registrazione',
@@ -174,9 +177,12 @@ export class RegisterComponent implements OnInit {
           this.mailService.sendSuccessRegisterEmail(this.emailRequest).subscribe();
         });
     } else {
-      console.log('Invalid Form', this.registerForm.value);
+      this.notify.error('Registrazione fallita');
     }
-
-    window.location.replace('/login');
+    setTimeout(() => {
+      window.location.replace('/login');
+    }, 1000);
+   
+    
   }
 }

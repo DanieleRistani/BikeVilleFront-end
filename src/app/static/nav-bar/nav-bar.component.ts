@@ -1,4 +1,4 @@
-import { Component, OnInit,  } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild,  } from '@angular/core';
 import {  NavigationStart, Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms'
 import { NgClass } from '@angular/common';
@@ -24,7 +24,12 @@ export class NavBarComponent implements OnInit{
   search !: string
   authUser : any
   jwtDecode :any
-  countCartProduct !: number
+  showCart !: boolean
+
+  @ViewChild('cartButton') cartButton!: ElementRef;
+  cartProducId : number[]=[]
+  cartProducts : any[]=[]
+  totalPrice : number=0
   
  constructor(private categoryService: CategoriesService,private loginService: LoginService,private router: Router,public cartService: CartService) {
   
@@ -34,10 +39,10 @@ export class NavBarComponent implements OnInit{
 
     if (event instanceof NavigationStart) {
    
-     
+      
      
       if (localStorage.getItem('token')) {
-         
+        
 
         if(localStorage.getItem('token') && !this.loginService.checkValidToken(localStorage.getItem('token')||'') ){
           this.logout()
@@ -58,10 +63,12 @@ export class NavBarComponent implements OnInit{
     this.categoryService.getCategories().subscribe((data: any) => {
       this.categories = data.$values.filter((item : any) => !item.$ref);   
     })
-
+    this.showCart=false
     this.isAuth=localStorage.getItem('token') ? true : false
+ 
+
     
-    this.countCartProduct=this.cartService.cartCount.getValue()
+
 
     if(this.isAuth){
       this.jwtDecode=jwtDecode(localStorage.getItem('token')||'')
@@ -104,6 +111,27 @@ export class NavBarComponent implements OnInit{
     }
   }
 
+  loadCart(){
+    this.totalPrice=0
+   this.cartProducId=localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')||'') : [];
+    this.cartProducId.forEach((element: number) => {
+      this.cartService.getCartProducts(element).subscribe((data: any) => {
+        this.totalPrice+=data.listPrice
+        this.cartProducts.push(data)
+    })
+
+  })}
+
+  removeFromCart(id : number){
+    this.cartProducId=localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')||'') : [];
+    this.cartProducId.splice(this.cartProducId.indexOf(id), 1); 
+    localStorage.setItem('cart', JSON.stringify(this.cartProducId)); 
+    this.loadCart()
+    window.location.reload()
+  
+    
+  }
+  
   isShow(){
     if(this.show==true){
       this.show=false

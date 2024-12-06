@@ -3,6 +3,8 @@ import { RouterLink } from '@angular/router';
 import { FormsModule, NgModel } from '@angular/forms';
 import { MailService } from '../../service/mail/mail.service';
 import { RequestEmail } from '../../Entity/RequestEmail';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-footer',
@@ -15,7 +17,7 @@ import { RequestEmail } from '../../Entity/RequestEmail';
 export class FooterComponent implements OnInit {
   mail:string="";
   emailRequest!: RequestEmail 
-  constructor(private mailService: MailService) { }
+  constructor(private mailService: MailService,private notify: ToastrService) { }
   
  ngOnInit(): void {
   
@@ -24,6 +26,7 @@ export class FooterComponent implements OnInit {
  requestAdmin() {
   if(this.mail==""||this.mail.includes("@")==false||this.mail.includes(".com")==false){
     this.mail="";
+    this.notify.error("Inserisci un indirizzo email valido");
     
   }else{
 
@@ -104,6 +107,7 @@ export class FooterComponent implements OnInit {
 
     this.mailService.sendToBeAdminEmail(this.emailRequest).subscribe();
     this.mail="";
+    this.notify.success("Richiesta inviata");
   }
 
   

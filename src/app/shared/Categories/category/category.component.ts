@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { CartService } from '../../../service/cart/cart.service';
 
 
+
+
 @Component({
   selector: 'app-category',
   standalone: true,
