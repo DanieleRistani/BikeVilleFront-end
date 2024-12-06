@@ -55,7 +55,7 @@ runLogin(){
           this.jwtToken = response.body.token
           this.setTokenLocalStorage(response.body.token)
           this.setCartLocalStorage()
-          this.loginService.setHeaderTokenAuth(response.body.token)
+   
           window.location.replace('/');         
           break;
         case HttpStatusCode.NoContent:

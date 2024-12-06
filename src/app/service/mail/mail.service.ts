@@ -11,4 +11,8 @@ export class MailService {
   sendToBeAdminEmail(email: RequestEmail) {
     return this.http.post('https://localhost:7167/Email/toBeAdmin', email);
   }
+
+  sendSuccessRegisterEmail(email: RequestEmail) {
+    return this.http.post('https://localhost:7167/Email/successRegister', email);
+  }
 }

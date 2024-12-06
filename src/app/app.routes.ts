@@ -13,6 +13,7 @@ import { ProductsComponent } from './auth/admin/adminChild/products/products.com
 import { ProductsManagmentComponent } from './auth/admin/adminChild/products-managment/products-managment.component';
 import { ExportProductsComponent } from './auth/admin/adminChild/export-products/export-products.component';
 import { ExportUsersComponent } from './auth/admin/adminChild/export-users/export-users.component';
+import { ToAdminComponent } from './auth/admin/toBeAdmin/to-admin/to-admin.component';
 
 export const routes: Routes = [
     {path: '',component:HomeComponent},
@@ -29,6 +30,7 @@ export const routes: Routes = [
       {path: 'exportProducts',component: ExportProductsComponent},
       {path: 'exportUsers',component: ExportUsersComponent},
     ]},
+    {path: 'toBeAdmin/:email',component: ToAdminComponent},
 
 
 

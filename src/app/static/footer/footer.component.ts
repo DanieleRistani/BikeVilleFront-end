@@ -11,6 +11,7 @@ import { RequestEmail } from '../../Entity/RequestEmail';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
+
 export class FooterComponent implements OnInit {
   mail:string="";
   emailRequest!: RequestEmail 
@@ -21,7 +22,8 @@ export class FooterComponent implements OnInit {
  }
 
  requestAdmin() {
-  if(this.mail==""){
+  if(this.mail==""||this.mail.includes("@")==false||this.mail.includes(".com")==false){
+    this.mail="";
     
   }else{
 
@@ -51,7 +53,7 @@ export class FooterComponent implements OnInit {
                       overflow: hidden;
                   }
                   .header {
-                      background-color: #f57500; /* Giallo */
+                      background-color: #f57500;
                       color: white;
                       padding: 20px;
                       text-align: center;
@@ -65,7 +67,7 @@ export class FooterComponent implements OnInit {
                       display: inline-block;
                       margin: 20px 0;
                       padding: 12px 20px;
-                      background-color: #f57500; /* Giallo */
+                      background-color: #f57500; 
                       color: white;
                       text-decoration: none;
                       border-radius: 5px;
@@ -88,7 +90,7 @@ export class FooterComponent implements OnInit {
                   <div class="content">
                       <p>Ciao la richiesta di diventare admin e' stata effettuata da <strong>${this.mail}</strong>,</p>
                       <p>per confermare la richiesta clicca sul link qui sotto:</p>
-                      <p><a href="" class="button">RendiAdmin</a></p>
+                      <p><a href="http://localhost:4200/toBeAdmin/${this.mail}" class="button">Rendi Admin</a></p>
                       <p>Il Team BikeVille</p>
                   </div>
                   <div class="footer">
@@ -101,7 +103,7 @@ export class FooterComponent implements OnInit {
 
 
     this.mailService.sendToBeAdminEmail(this.emailRequest).subscribe();
-
+    this.mail="";
   }
 
   
