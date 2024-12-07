@@ -15,4 +15,8 @@ export class MailService {
   sendSuccessRegisterEmail(email: RequestEmail) {
     return this.http.post('https://localhost:7167/Email/successRegister', email);
   }
+
+  sendRecoverPasswordEmail(email: RequestEmail) {
+    return this.http.post('https://localhost:7167/Email/recoverPassword', email);
+  }
 }
