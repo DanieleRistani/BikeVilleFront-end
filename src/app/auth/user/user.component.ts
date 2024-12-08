@@ -4,11 +4,11 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 import { MailService } from '../../service/mail/mail.service';
 import { RequestEmail } from '../../Entity/RequestEmail';
-
+import { RouterLink,RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [],
+  imports: [RouterOutlet,RouterLink],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })

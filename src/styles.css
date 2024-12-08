@@ -260,14 +260,7 @@ body {
 	min-height: 80vh;
 }
 
-.header,
-.home,
-.about,
-.portfolio,
-.contact,
-.footer {
-	position: relative;
-}
+
 
 .header h1,
 .home h1,

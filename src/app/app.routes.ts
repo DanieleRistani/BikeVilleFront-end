@@ -14,6 +14,7 @@ import { ProductsManagmentComponent } from './auth/admin/adminChild/products-man
 import { ExportProductsComponent } from './auth/admin/adminChild/export-products/export-products.component';
 import { ExportUsersComponent } from './auth/admin/adminChild/export-users/export-users.component';
 import { ToAdminComponent } from './auth/admin/toBeAdmin/to-admin/to-admin.component';
+import { ResetPasswordComponent } from './auth/user/userChild/reset-password/reset-password.component';
 
 export const routes: Routes = [
     {path: '',component:HomeComponent},
@@ -21,7 +22,7 @@ export const routes: Routes = [
     {path: 'login',component:LoginComponent},
     {path: 'categories/:id',component: CategoryComponent},
     {path: 'search/:filter',component: SearchProductsComponent},
-    {path: 'userProfile/:email',component: UserComponent},
+    {path: 'userProfile/:email',component: UserComponent,children: [{path: 'resetPassword/:id',component: ResetPasswordComponent}]},
     {path: 'adminHUB/:email',component: AdminComponent,children: [
       {path: 'users',component: UsersComponent},
       {path: 'usersManagment',component: UsersManagmentComponent},
