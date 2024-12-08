@@ -5,10 +5,11 @@ import { jwtDecode } from 'jwt-decode';
 import { MailService } from '../../service/mail/mail.service';
 import { RequestEmail } from '../../Entity/RequestEmail';
 import { RouterLink,RouterOutlet } from '@angular/router';
+import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [RouterOutlet,RouterLink],
+  imports: [RouterOutlet,RouterLink,NgIf],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
@@ -18,7 +19,9 @@ export class UserComponent implements OnInit {
   authUser : any
   jwtDecode :any
   emailRequest!: RequestEmail
+  showResetPass!: boolean
   ngOnInit(): void {
+    this.showResetPass=true
     this.jwtDecode=jwtDecode(localStorage.getItem('token')!)
     this.route.paramMap.subscribe((params: ParamMap) => {
       if(this.jwtDecode.unique_name != params.get('email')){

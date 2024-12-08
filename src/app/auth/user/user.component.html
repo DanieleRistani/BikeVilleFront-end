@@ -17,7 +17,7 @@
                                   <h4>{{authUser.firstName}} {{authUser.lastName}}</h4>
                                   <p class="text-secondary mb-1">{{authUser.role}}</p>
                                   <div class="mt-3">
-                                    <button class="btn btn-outline-dark ms-1" (click)="sendRecoverPasswordEmail()">Recover password</button> 
+                                    <button class="btn btn-outline-dark ms-1" (click)="sendRecoverPasswordEmail()">Recupera password</button> 
                                 </div>
                                  
                                 </div>
@@ -54,7 +54,7 @@
                             <div class="card-body">
                               <div class="row">
                                 <div class="col-sm-3">
-                                  <h6 class="mb-0">Full Name</h6>
+                                  <h6 class="mb-0">Nome</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     {{authUser.firstName + " " + authUser.lastName}}
@@ -72,7 +72,7 @@
                               <hr>
                               <div class="row">
                                 <div class="col-sm-3">
-                                  <h6 class="mb-0">Phone</h6>
+                                  <h6 class="mb-0">Cell</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     {{authUser.phone}}
@@ -81,7 +81,7 @@
                               <hr>
                               <div class="row">
                                 <div class="col-sm-3">
-                                  <h6 class="mb-0">Role</h6>
+                                  <h6 class="mb-0">Ruolo</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                   {{authUser.role}}
@@ -96,7 +96,8 @@
                           <div class="card mb-3">
                             <div class="card-body">
                               <div class="row">
-                                <a routerLink="resetPassword/{{authUser.userId}}"><button class="btn btn-outline-dark me-1">Reset Password</button></a>
+                                <a *ngIf="showResetPass" routerLink="resetPassword/{{authUser.userId}}" ><button class="btn btn-outline-dark me-1" (click)="showResetPass=false">Reset Password</button></a>
+                                <a *ngIf="!showResetPass" routerLink="/userProfile/{{authUser.emailAddress}}"><button class="btn btn-outline-dark me-1" (click)="showResetPass=true"><i class="fa-solid fa-xmark"></i></button></a>
                                 <router-outlet></router-outlet>
                               </div>
                             </div>
