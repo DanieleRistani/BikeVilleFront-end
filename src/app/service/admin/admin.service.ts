@@ -26,4 +26,14 @@ export class AdminService {
     });
 
   }
+
+  getCustomers(){
+    return this.http.get('https://localhost:7167/Customers/Index')
+  }
+  getCustomerById(id : number){
+    return this.http.get('https://localhost:7167/Customers/Details/'+id)
+  }
+  deleteCustomerById(id : number){
+    return this.http.delete('https://localhost:7167/Customers/Delete/'+id)
+  }
 }

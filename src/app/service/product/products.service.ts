@@ -11,5 +11,8 @@ export class ProductsService {
   getProducts(filter : string) {
     return this.http.get('https://localhost:7167/Products/Filter/'+filter);
   }
+  getProductsIndex(){
+    return this.http.get('https://localhost:7167/Products/Index')
+  }
   
 }

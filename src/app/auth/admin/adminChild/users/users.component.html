@@ -1,3 +1,55 @@
+<div class="container-fluid ">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class=" col-12 col-md-8 mt-5 custom-table">
+            <table class="table w-100">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-center">CustomerId</th>
+                    <th scope="col" class="text-center">Name</th>
+                    <th scope="col" class="text-center">Company Name</th>
+                    <th scope="col" class="text-center">Sales Person</th>
+                    <th scope="col" class="text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
 
-    <h2 class="display-1 text-center">Customers</h2>
+                  <tr *ngFor="let customer of customers">
+                    <th scope="row">{{customer.customerId}}</th>
+                    <td class="text-center">{{customer.firstName+" "+customer.lastName}}</td>
+                    <td class="text-center">{{customer.companyName}}</td>
+                    <td class="text-center">{{customer.salesPerson}}</td>
+                    <td ><div class="d-flex justify-content-center align-content-center"><button class="btn btn-outline-danger me-1" (click)="deleteCustomer(customer.customerId)"><i class="fa-solid fa-trash"></i></button><button  class="btn btn-outline-primary" (click)="getCustomerSalesOrders(customer.customerId)"><i class="fa-solid fa-eye"></i></button></div></td>
+                   
+                  </tr>
+         
+                </tbody>
+              </table>
+    </div>
+    <div *ngIf="showSalesOrders" class=" col-12 col-md-8 mt-5 custom-table">
+        <button class="btn btn-dark w-100" (click)="showSalesOrders=false"><i class="fa-solid fa-eye-slash"></i></button>
+        <table class="table w-100">
+            <thead>
+              <tr>
+                <th scope="col" class="text-center">Sales Order Id</th>
+                <th scope="col" class="text-center">Sales Order Number</th>
+                <th scope="col" class="text-center">Purchase Order Number</th>
+                <th scope="col" class="text-center">Order Date</th>
+                <th scope="col" class="text-center">Ship Date</th>
+                
+              </tr>
+            </thead>
+            <tbody>
 
+              <tr *ngFor="let salesOrder of salesOrders">
+                <th scope="row" class="text-center">{{salesOrder.salesOrderId}}</th>
+                <td class="text-center">{{salesOrder.salesOrderNumber}}</td>
+                <td class="text-center">{{salesOrder.purchaseOrderNumber}}</td>
+                <td class="text-center"> {{salesOrder.orderDate}}</td>
+                <td class="text-center">{{salesOrder.shipDate}}</td>       
+              </tr>
+     
+            </tbody>
+          </table>
+    </div>
+</div>
+</div>

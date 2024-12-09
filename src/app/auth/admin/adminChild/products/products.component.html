@@ -1,2 +1,51 @@
 
-    <h2 class="display-1 text-center">Products</h2>
+    <div class="container-fluid ">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-10">
+                <div class="w-100 mt-4"><button class="btn btn-outline-light w-50 rounded-end-0" (click)="showAddProducts=true">Add Products</button><button class="btn btn-outline-light w-50 rounded-start-0" (click)="showAddProducts=false">Products List</button></div>
+            </div>
+            <div *ngIf="showAddProducts" class="col-10">
+                  <h2 class="display-1 text-center">Add Products</h2>
+            </div>
+            
+            <div *ngIf="!showAddProducts" class="col-12  mt-5  custom-table">
+                <table class="table w-100 ">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="text-center">Product Id</th>
+                        <th scope="col" class="text-center">Name</th>
+                        <th scope="col" class="text-center">Product Number</th>
+                        <th scope="col" class="text-center">Color</th>
+                        <th scope="col" class="text-center">Standard Cost</th>
+                        <th scope="col" class="text-center">List price</th>
+                        <th scope="col" class="text-center">Size</th>
+                        <th scope="col" class="text-center">Weight</th>
+                        <th scope="col" class="text-center">Product category Id</th>
+                        <th scope="col" class="text-center">Product model Id</th>
+                        <th scope="col" class="text-center">Sell Start Date</th>
+                        <th scope="col" class="text-center">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+    
+                      <tr *ngFor="let product of products">
+                        <th scope="row">{{product.productId}}</th>
+                        <td class="text-center">{{product.name}}</td>
+                        <td class="text-center">{{product.productNumber}}</td>
+                        <td class="text-center">{{product.color||"N/A"}}</td>
+                        <td class="text-center">{{product.standardCost}}</td>
+                        <td class="text-center">{{product.ListPrice}}</td>
+                        <td class="text-center">{{product.size||"N/A"}}</td>
+                        <td class="text-center">{{product.weight||"N/A"}}</td>
+                        <td class="text-center">{{product.productCategoryId}}</td>
+                        <td class="text-center">{{product.productModelId}}</td>
+                        <td class="text-center">{{product.sellStartdate}}</td>
+                        <td ><div class="d-flex justify-content-center align-content-center"><button class="btn btn-outline-danger me-1"><i class="fa-solid fa-trash"></i></button><button  class="btn btn-outline-warning" ><i class="fa-solid fa-pen"></i></button></div></td>
+                       
+                      </tr>
+             
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>

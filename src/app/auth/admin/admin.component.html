@@ -1,5 +1,5 @@
 <section class="home container-fluid aling-items-center  ">
-    <div class="row d-flex justify-content-center align-items-center vh-100">
+    <div class="row d-flex justify-content-center align-items-center">
     
       <div class="ms-5 col-10 h-100">
         <router-outlet></router-outlet>
@@ -18,13 +18,10 @@
   </div>
   <div id="nav-content" style="height: fit-content;">
     <a routerLink="/adminHUB/{{authUser.emailAddress}}/users" class="nav-button"><i class="fas fa-users"></i><span>Customers</span></a>
-    <a routerLink="/adminHUB/{{authUser.emailAddress}}/usersManagment" class="nav-button"><i class="fas fa-user-pen"></i><span>Customers Management</span></a>
     <hr/>
     <a routerLink="/adminHUB/{{authUser.emailAddress}}/products" class="nav-button"><i class="fas fa-brands fa-shopify"></i><span>Products</span></a>
-    <a routerLink="/adminHUB/{{authUser.emailAddress}}/productsManagment" class="nav-button"><i class="fas fa-brush"></i><span>Products Management </span></a>
     <hr/>
-    <a routerLink="/adminHUB/{{authUser.emailAddress}}/exportProducts" class="nav-button"><i class="fas fa-folder"></i><span>Export products Data</span></a>
-    <a routerLink="/adminHUB/{{authUser.emailAddress}}/exportUsers" class="nav-button"><i class="fas fa-folder"></i><span>Export customers Data</span></a>
+
     <div id="nav-content-highlight"></div>
   </div>
   <input id="nav-footer-toggle" type="checkbox"/>
