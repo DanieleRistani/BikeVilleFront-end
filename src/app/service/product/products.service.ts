@@ -25,4 +25,7 @@ export class ProductsService {
   addProduct(product :Product){
     return this.http.post("https://localhost:7167/Products/Add",product)
   }
+  updateProduct(id:number,product:Product){
+    return this.http.put("https://localhost:7167/Products/Update/"+id,product)
+  }
 }

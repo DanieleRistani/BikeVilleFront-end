@@ -39,16 +39,13 @@
             [ngClass]="{invalid: addProductsForm.get('color')?.errors && addProductsForm.get('color')?.touched}">
             <i class="fa fa-solid fa-user"></i>
             <select autocomplete="off" placeholder="color" class="input-field" type="text" formControlName="color">
-              <option value="black" class="bg-dark">black</option>
-              <option value="red" class="bg-dark">red</option>
-              <option value="blue" class="bg-dark">blue</option>
-              <option value="green" class="bg-dark">green</option>
-              <option value="purple" class="bg-dark">purple</option>
-              <option value="yellow" class="bg-dark">yellow</option>
+              <option value="Black" class="bg-dark">Black</option>
+              <option value="Red" class="bg-dark">Red</option>
+              <option value="Blue" class="bg-dark">Blue</option>
+              <option value="Green" class="bg-dark">Green</option>
+              <option value="Purple" class="bg-dark">Purple</option>
+              <option value="Yellow" class="bg-dark">Yellow</option>
             </select>
-
-            <span *ngIf="addProductsForm.get('color')?.hasError('required') && addProductsForm.get('color')?.touched"
-              class="text-danger error-custom">color is require</span>
            
           </div>
             <div class="field mb-2"
@@ -79,8 +76,7 @@
               [ngClass]="{invalid: addProductsForm.get('size')?.errors && addProductsForm.get('size')?.touched}">
               <i class="fa fa-solid fa-user"></i>
               <input autocomplete="off" placeholder="size" class="input-field" type="text" formControlName="size">
-              <span *ngIf="addProductsForm.get('size')?.hasError('required') && addProductsForm.get('size')?.touched"
-                class="text-danger error-custom">size is require</span>
+            
               <span *ngIf="addProductsForm.get('size')?.hasError('minlength') && addProductsForm.get('size')?.touched"
                 class="text-danger error-custom">size allmore 1 characters</span>
               <span *ngIf="addProductsForm.get('size')?.hasError('maxlength') && addProductsForm.get('size')?.touched"
@@ -90,8 +86,7 @@
               [ngClass]="{invalid: addProductsForm.get('weight')?.errors && addProductsForm.get('weight')?.touched}">
               <i class="fa fa-solid fa-user"></i>
               <input autocomplete="off" placeholder="weight" class="input-field" type="number" formControlName="weight">
-              <span *ngIf="addProductsForm.get('weight')?.hasError('required') && addProductsForm.get('weight')?.touched"
-                class="text-danger error-custom">weight is require</span>
+           
               <span *ngIf="addProductsForm.get('weight')?.hasError('minlength') && addProductsForm.get('weight')?.touched"
                 class="text-danger error-custom">weight allmore 1 characters</span>
               <span *ngIf="addProductsForm.get('weight')?.hasError('maxlength') && addProductsForm.get('weight')?.touched"
@@ -148,9 +143,13 @@
           Product</button>
 
       </form>
+     
+
+
+
     </div>
 
-    <div *ngIf="!showAddProducts" class="col-12  mt-5  custom-table">
+    <div *ngIf="!showAddProducts" class="col-12  my-5  custom-table">
       <table class="table w-100 ">
         <thead>
           <tr>
@@ -185,7 +184,7 @@
             <td>
               <div class="d-flex justify-content-center align-content-center"><button
                   class="btn btn-outline-danger me-1" (click)="deleteProduct(product.productId)"><i
-                    class="fa-solid fa-trash"></i></button><button class="btn btn-outline-warning"><i
+                    class="fa-solid fa-trash"></i></button><button class="btn btn-outline-warning" (click)="loadProductsInfo(product)"><i
                     class="fa-solid fa-pen"></i></button></div>
             </td>
 
@@ -193,6 +192,144 @@
 
         </tbody>
       </table>
+    </div>
+    <div *ngIf="showUpdateProducts" class=" col-12  mt-5 ">
+      <button class="btn btn-dark w-100" (click)="showUpdateProducts=false"><i class="fa-solid fa-eye-slash"></i></button>
+      <form class="form w-100 mb-5 " [formGroup]="updateProductsForm">
+        <div class="d-flex justify-content-center mt-4">
+
+          <div class="d-flex justify-content-evenly flex-column w-100">
+            <div class="field mb-2"
+              [ngClass]="{invalid: updateProductsForm.get('name')?.errors && updateProductsForm.get('name')?.touched}">
+              <i class="fa fa-solid fa-user"></i>
+              <input autocomplete="off" placeholder="name" class="input-field " type="text" formControlName="name">
+              <span *ngIf="updateProductsForm.get('name')?.hasError('required') && updateProductsForm.get('name')?.touched"
+                class="text-danger error-custom">name is require</span>
+              <span *ngIf="updateProductsForm.get('name')?.hasError('minlength') && updateProductsForm.get('name')?.touched"
+                class="text-danger error-custom">name allmore 3 characters</span>
+              <span *ngIf="updateProductsForm.get('name')?.hasError('maxlength') && updateProductsForm.get('name')?.touched"
+                class="text-danger error-custom"> name no allmore 10 characters</span>
+            </div>
+            <div class="field mb-2"
+              [ngClass]="{invalid: updateProductsForm.get('productNumber')?.errors && updateProductsForm.get('productNumber')?.touched}">
+              <i class="fa fa-solid fa-user"></i>
+              <input autocomplete="off" placeholder="productNumber" class="input-field" type="text"
+                formControlName="productNumber">
+                <span *ngIf="updateProductsForm.get('productNumber')?.hasError('required') && updateProductsForm.get('productNumber')?.touched"
+                class="text-danger error-custom">productNumber is require</span>
+              <span *ngIf="updateProductsForm.get('productNumber')?.hasError('minlength') && updateProductsForm.get('productNumber')?.touched"
+                class="text-danger error-custom">productNumber allmore 3 characters</span>
+              <span *ngIf="updateProductsForm.get('productNumber')?.hasError('maxlength') && updateProductsForm.get('productNumber')?.touched"
+                class="text-danger error-custom"> productNumber no allmore 10 characters</span>
+            </div>
+            <div class="field mb-2"
+            [ngClass]="{invalid: updateProductsForm.get('color')?.errors && updateProductsForm.get('color')?.touched}">
+            <i class="fa fa-solid fa-user"></i>
+            <select autocomplete="off" placeholder="color" class="input-field" type="text" formControlName="color">
+              <option value="Black" class="bg-dark">Black</option>
+              <option value="Red" class="bg-dark">Red</option>
+              <option value="Blue" class="bg-dark">Blue</option>
+              <option value="Green" class="bg-dark">Green</option>
+              <option value="Purple" class="bg-dark">Purple</option>
+              <option value="Yellow" class="bg-dark">Yellow</option>
+            </select>
+           
+          </div>
+            <div class="field mb-2"
+              [ngClass]="{invalid: updateProductsForm.get('standardCost')?.errors && updateProductsForm.get('standardCost')?.touched}">
+              <i class="fa fa-solid fa-user"></i>
+              <input autocomplete="off" placeholder="standardCost" class="input-field" type="number"
+                formControlName="standardCost">
+                <span *ngIf="updateProductsForm.get('standardCost')?.hasError('required') && updateProductsForm.get('standardCost')?.touched"
+                class="text-danger error-custom">standardCost is require</span>
+              <span *ngIf="updateProductsForm.get('standardCost')?.hasError('minlength') && updateProductsForm.get('standardCost')?.touched"
+                class="text-danger error-custom">standardCost allmore 3 characters</span>
+              <span *ngIf="updateProductsForm.get('standardCost')?.hasError('maxlength') && updateProductsForm.get('standardCost')?.touched"
+                class="text-danger error-custom"> standardCost no allmore 15 characters</span>
+            </div>
+            <div class="field mb-2"
+              [ngClass]="{invalid: updateProductsForm.get('listPrice')?.errors && updateProductsForm.get('listPrice')?.touched}">
+              <i class="fa fa-solid fa-user"></i>
+              <input autocomplete="off" placeholder="listPrice" class="input-field" type="number"
+                formControlName="listPrice">
+                <span *ngIf="updateProductsForm.get('listPrice')?.hasError('required') && updateProductsForm.get('listPrice')?.touched"
+                class="text-danger error-custom">listPrice is require</span>
+              <span *ngIf="updateProductsForm.get('listPrice')?.hasError('minlength') && updateProductsForm.get('listPrice')?.touched"
+                class="text-danger error-custom">listPrice allmore 3 characters</span>
+              <span *ngIf="updateProductsForm.get('listPrice')?.hasError('maxlength') && updateProductsForm.get('listPrice')?.touched"
+                class="text-danger error-custom"> listPrice no allmore 10 characters</span>
+            </div>
+            <div class="field mb-2"
+              [ngClass]="{invalid: updateProductsForm.get('size')?.errors && updateProductsForm.get('size')?.touched}">
+              <i class="fa fa-solid fa-user"></i>
+              <input autocomplete="off" placeholder="size" class="input-field" type="text" formControlName="size">
+            
+              <span *ngIf="updateProductsForm.get('size')?.hasError('minlength') && updateProductsForm.get('size')?.touched"
+                class="text-danger error-custom">size allmore 1 characters</span>
+              <span *ngIf="updateProductsForm.get('size')?.hasError('maxlength') && updateProductsForm.get('size')?.touched"
+                class="text-danger error-custom"> size no allmore 2 characters</span>
+            </div>
+            <div class="field mb-2"
+              [ngClass]="{invalid: updateProductsForm.get('weight')?.errors && updateProductsForm.get('weight')?.touched}">
+              <i class="fa fa-solid fa-user"></i>
+              <input autocomplete="off" placeholder="weight" class="input-field" type="number" formControlName="weight">
+           
+              <span *ngIf="updateProductsForm.get('weight')?.hasError('minlength') && updateProductsForm.get('weight')?.touched"
+                class="text-danger error-custom">weight allmore 1 characters</span>
+              <span *ngIf="updateProductsForm.get('weight')?.hasError('maxlength') && updateProductsForm.get('weight')?.touched"
+                class="text-danger error-custom"> weight no allmore 10 characters</span>
+            </div>
+            <div class="field mb-2"
+              [ngClass]="{invalid: updateProductsForm.get('productCategoryId')?.errors && updateProductsForm.get('productCategoryId')?.touched}">
+              <i class="fa fa-solid fa-user"></i>
+              <select autocomplete="off" placeholder="productCategoryId" class="input-field" type="text" formControlName="productCategoryId">
+
+                <option *ngFor ="let category of categories" value="{{category.productCategoryId}}" class="bg-black">{{category.name}}</option>
+               
+              </select>
+
+              <span *ngIf="updateProductsForm.get('productCategoryId')?.hasError('required') && updateProductsForm.get('productCategoryId')?.touched"
+                class="text-danger error-custom">category is require</span>
+             
+            </div>
+            <div class="field mb-2"
+            [ngClass]="{invalid: updateProductsForm.get('productModelId')?.errors && updateProductsForm.get('productModelId')?.touched}">
+            <i class="fa fa-solid fa-user"></i>
+            <select autocomplete="off" placeholder="productModelId" class="input-field" type="text" formControlName="productModelId">
+
+              <option *ngFor ="let model of models" value="{{model.productModelId}}" class="bg-black">{{model.name}}</option>
+             
+            </select>
+
+            <span *ngIf="updateProductsForm.get('productModelId')?.hasError('required') && updateProductsForm.get('productModelId')?.touched"
+              class="text-danger error-custom">category is require</span>
+           
+          </div>
+          <div class="field mb-2"
+              [ngClass]="{invalid: updateProductsForm.get('sellStartDate')?.errors && updateProductsForm.get('sellStartDate')?.touched}">
+              <i class="fa fa-solid fa-user"></i>
+              <input autocomplete="off" placeholder="sellStartDate" class="input-field" type="datetime-local" formControlName="sellStartDate">
+              <span *ngIf="updateProductsForm.get('sellStartDate')?.hasError('required') && updateProductsForm.get('sellStartDate')?.touched"
+                class="text-danger error-custom">sell Start Date is require</span>
+              
+            </div>
+            <div class="field mb-2"
+              [ngClass]="{invalid: updateProductsForm.get('sellEndDate')?.errors && updateProductsForm.get('sellEndDate')?.touched}">
+              <i class="fa fa-solid fa-user"></i>
+              <input autocomplete="off" placeholder="sellEndDate" class="input-field" type="datetime-local" formControlName="sellEndDate">
+              <span *ngIf="updateProductsForm.get('sellEndDate')?.hasError('required') && updateProductsForm.get('sellEndDate')?.touched"
+                class="text-danger error-custom">sell End Date is require</span>
+              
+            </div>
+          </div>
+          
+        </div>
+
+
+        <button class="btn button1 border-0 rounded-5 mb-3 w-100" [disabled]="updateProductsForm.invalid" type="submit" (click)="runUpdateProduct()">Update
+          Product</button>
+
+      </form>
     </div>
   </div>
 </div>

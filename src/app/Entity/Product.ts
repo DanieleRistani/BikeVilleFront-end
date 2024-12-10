@@ -1,6 +1,8 @@
 export class Product {
     
-    constructor(public name: string,
+    constructor(
+        public productId :number|null,
+        public name: string,
         public productNumber: string,
         public color: string,
         public standardCost: number,
