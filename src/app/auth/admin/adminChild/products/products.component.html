@@ -1,51 +1,198 @@
-
-    <div class="container-fluid ">
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-10">
-                <div class="w-100 mt-4"><button class="btn btn-outline-light w-50 rounded-end-0" (click)="showAddProducts=true">Add Products</button><button class="btn btn-outline-light w-50 rounded-start-0" (click)="showAddProducts=false">Products List</button></div>
-            </div>
-            <div *ngIf="showAddProducts" class="col-10">
-                  <h2 class="display-1 text-center">Add Products</h2>
-            </div>
-            
-            <div *ngIf="!showAddProducts" class="col-12  mt-5  custom-table">
-                <table class="table w-100 ">
-                    <thead>
-                      <tr>
-                        <th scope="col" class="text-center">Product Id</th>
-                        <th scope="col" class="text-center">Name</th>
-                        <th scope="col" class="text-center">Product Number</th>
-                        <th scope="col" class="text-center">Color</th>
-                        <th scope="col" class="text-center">Standard Cost</th>
-                        <th scope="col" class="text-center">List price</th>
-                        <th scope="col" class="text-center">Size</th>
-                        <th scope="col" class="text-center">Weight</th>
-                        <th scope="col" class="text-center">Product category Id</th>
-                        <th scope="col" class="text-center">Product model Id</th>
-                        <th scope="col" class="text-center">Sell Start Date</th>
-                        <th scope="col" class="text-center">Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-    
-                      <tr *ngFor="let product of products">
-                        <th scope="row">{{product.productId}}</th>
-                        <td class="text-center">{{product.name}}</td>
-                        <td class="text-center">{{product.productNumber}}</td>
-                        <td class="text-center">{{product.color||"N/A"}}</td>
-                        <td class="text-center">{{product.standardCost}}</td>
-                        <td class="text-center">{{product.ListPrice}}</td>
-                        <td class="text-center">{{product.size||"N/A"}}</td>
-                        <td class="text-center">{{product.weight||"N/A"}}</td>
-                        <td class="text-center">{{product.productCategoryId}}</td>
-                        <td class="text-center">{{product.productModelId}}</td>
-                        <td class="text-center">{{product.sellStartdate}}</td>
-                        <td ><div class="d-flex justify-content-center align-content-center"><button class="btn btn-outline-danger me-1"><i class="fa-solid fa-trash"></i></button><button  class="btn btn-outline-warning" ><i class="fa-solid fa-pen"></i></button></div></td>
-                       
-                      </tr>
-             
-                    </tbody>
-                  </table>
-            </div>
-        </div>
+<div class="container-fluid ">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-10">
+      <div class="w-100 mt-4"><button class="btn btn-outline-light w-50 rounded-end-0"
+          (click)="showAddProducts=true">Add Products</button><button class="btn btn-outline-light w-50 rounded-start-0"
+          (click)="showAddProducts=false">Products List</button></div>
     </div>
+    <div *ngIf="showAddProducts" class="col-10">
+
+      <form class="form w-100 my-5 " [formGroup]="addProductsForm">
+        <h2 class="text-center text-custom-font display-1 my-5 text-white display-6">Add Products</h2>
+        <div class="d-flex justify-content-center">
+
+          <div class="d-flex justify-content-evenly flex-column w-100">
+            <div class="field mb-2"
+              [ngClass]="{invalid: addProductsForm.get('name')?.errors && addProductsForm.get('name')?.touched}">
+              <i class="fa fa-solid fa-user"></i>
+              <input autocomplete="off" placeholder="name" class="input-field " type="text" formControlName="name">
+              <span *ngIf="addProductsForm.get('name')?.hasError('required') && addProductsForm.get('name')?.touched"
+                class="text-danger error-custom">name is require</span>
+              <span *ngIf="addProductsForm.get('name')?.hasError('minlength') && addProductsForm.get('name')?.touched"
+                class="text-danger error-custom">name allmore 3 characters</span>
+              <span *ngIf="addProductsForm.get('name')?.hasError('maxlength') && addProductsForm.get('name')?.touched"
+                class="text-danger error-custom"> name no allmore 10 characters</span>
+            </div>
+            <div class="field mb-2"
+              [ngClass]="{invalid: addProductsForm.get('productNumber')?.errors && addProductsForm.get('productNumber')?.touched}">
+              <i class="fa fa-solid fa-user"></i>
+              <input autocomplete="off" placeholder="productNumber" class="input-field" type="text"
+                formControlName="productNumber">
+                <span *ngIf="addProductsForm.get('productNumber')?.hasError('required') && addProductsForm.get('productNumber')?.touched"
+                class="text-danger error-custom">productNumber is require</span>
+              <span *ngIf="addProductsForm.get('productNumber')?.hasError('minlength') && addProductsForm.get('productNumber')?.touched"
+                class="text-danger error-custom">productNumber allmore 3 characters</span>
+              <span *ngIf="addProductsForm.get('productNumber')?.hasError('maxlength') && addProductsForm.get('productNumber')?.touched"
+                class="text-danger error-custom"> productNumber no allmore 10 characters</span>
+            </div>
+            <div class="field mb-2"
+            [ngClass]="{invalid: addProductsForm.get('color')?.errors && addProductsForm.get('color')?.touched}">
+            <i class="fa fa-solid fa-user"></i>
+            <select autocomplete="off" placeholder="color" class="input-field" type="text" formControlName="color">
+              <option value="black" class="bg-dark">black</option>
+              <option value="red" class="bg-dark">red</option>
+              <option value="blue" class="bg-dark">blue</option>
+              <option value="green" class="bg-dark">green</option>
+              <option value="purple" class="bg-dark">purple</option>
+              <option value="yellow" class="bg-dark">yellow</option>
+            </select>
+
+            <span *ngIf="addProductsForm.get('color')?.hasError('required') && addProductsForm.get('color')?.touched"
+              class="text-danger error-custom">color is require</span>
+           
+          </div>
+            <div class="field mb-2"
+              [ngClass]="{invalid: addProductsForm.get('standardCost')?.errors && addProductsForm.get('standardCost')?.touched}">
+              <i class="fa fa-solid fa-user"></i>
+              <input autocomplete="off" placeholder="standardCost" class="input-field" type="number"
+                formControlName="standardCost">
+                <span *ngIf="addProductsForm.get('standardCost')?.hasError('required') && addProductsForm.get('standardCost')?.touched"
+                class="text-danger error-custom">standardCost is require</span>
+              <span *ngIf="addProductsForm.get('standardCost')?.hasError('minlength') && addProductsForm.get('standardCost')?.touched"
+                class="text-danger error-custom">standardCost allmore 3 characters</span>
+              <span *ngIf="addProductsForm.get('standardCost')?.hasError('maxlength') && addProductsForm.get('standardCost')?.touched"
+                class="text-danger error-custom"> standardCost no allmore 15 characters</span>
+            </div>
+            <div class="field mb-2"
+              [ngClass]="{invalid: addProductsForm.get('listPrice')?.errors && addProductsForm.get('listPrice')?.touched}">
+              <i class="fa fa-solid fa-user"></i>
+              <input autocomplete="off" placeholder="listPrice" class="input-field" type="number"
+                formControlName="listPrice">
+                <span *ngIf="addProductsForm.get('listPrice')?.hasError('required') && addProductsForm.get('listPrice')?.touched"
+                class="text-danger error-custom">listPrice is require</span>
+              <span *ngIf="addProductsForm.get('listPrice')?.hasError('minlength') && addProductsForm.get('listPrice')?.touched"
+                class="text-danger error-custom">listPrice allmore 3 characters</span>
+              <span *ngIf="addProductsForm.get('listPrice')?.hasError('maxlength') && addProductsForm.get('listPrice')?.touched"
+                class="text-danger error-custom"> listPrice no allmore 10 characters</span>
+            </div>
+            <div class="field mb-2"
+              [ngClass]="{invalid: addProductsForm.get('size')?.errors && addProductsForm.get('size')?.touched}">
+              <i class="fa fa-solid fa-user"></i>
+              <input autocomplete="off" placeholder="size" class="input-field" type="text" formControlName="size">
+              <span *ngIf="addProductsForm.get('size')?.hasError('required') && addProductsForm.get('size')?.touched"
+                class="text-danger error-custom">size is require</span>
+              <span *ngIf="addProductsForm.get('size')?.hasError('minlength') && addProductsForm.get('size')?.touched"
+                class="text-danger error-custom">size allmore 1 characters</span>
+              <span *ngIf="addProductsForm.get('size')?.hasError('maxlength') && addProductsForm.get('size')?.touched"
+                class="text-danger error-custom"> size no allmore 2 characters</span>
+            </div>
+            <div class="field mb-2"
+              [ngClass]="{invalid: addProductsForm.get('weight')?.errors && addProductsForm.get('weight')?.touched}">
+              <i class="fa fa-solid fa-user"></i>
+              <input autocomplete="off" placeholder="weight" class="input-field" type="number" formControlName="weight">
+              <span *ngIf="addProductsForm.get('weight')?.hasError('required') && addProductsForm.get('weight')?.touched"
+                class="text-danger error-custom">weight is require</span>
+              <span *ngIf="addProductsForm.get('weight')?.hasError('minlength') && addProductsForm.get('weight')?.touched"
+                class="text-danger error-custom">weight allmore 1 characters</span>
+              <span *ngIf="addProductsForm.get('weight')?.hasError('maxlength') && addProductsForm.get('weight')?.touched"
+                class="text-danger error-custom"> weight no allmore 10 characters</span>
+            </div>
+            <div class="field mb-2"
+              [ngClass]="{invalid: addProductsForm.get('productCategoryId')?.errors && addProductsForm.get('productCategoryId')?.touched}">
+              <i class="fa fa-solid fa-user"></i>
+              <select autocomplete="off" placeholder="productCategoryId" class="input-field" type="text" formControlName="productCategoryId">
+
+                <option *ngFor ="let category of categories" value="{{category.productCategoryId}}" class="bg-black">{{category.name}}</option>
+               
+              </select>
+
+              <span *ngIf="addProductsForm.get('productCategoryId')?.hasError('required') && addProductsForm.get('productCategoryId')?.touched"
+                class="text-danger error-custom">category is require</span>
+             
+            </div>
+            <div class="field mb-2"
+            [ngClass]="{invalid: addProductsForm.get('productModelId')?.errors && addProductsForm.get('productModelId')?.touched}">
+            <i class="fa fa-solid fa-user"></i>
+            <select autocomplete="off" placeholder="productModelId" class="input-field" type="text" formControlName="productModelId">
+
+              <option *ngFor ="let model of models" value="{{model.productModelId}}" class="bg-black">{{model.name}}</option>
+             
+            </select>
+
+            <span *ngIf="addProductsForm.get('productModelId')?.hasError('required') && addProductsForm.get('productModelId')?.touched"
+              class="text-danger error-custom">category is require</span>
+           
+          </div>
+          <div class="field mb-2"
+              [ngClass]="{invalid: addProductsForm.get('sellStartDate')?.errors && addProductsForm.get('sellStartDate')?.touched}">
+              <i class="fa fa-solid fa-user"></i>
+              <input autocomplete="off" placeholder="sellStartDate" class="input-field" type="datetime-local" formControlName="sellStartDate">
+              <span *ngIf="addProductsForm.get('sellStartDate')?.hasError('required') && addProductsForm.get('sellStartDate')?.touched"
+                class="text-danger error-custom">sell Start Date is require</span>
+              
+            </div>
+            <div class="field mb-2"
+              [ngClass]="{invalid: addProductsForm.get('sellEndDate')?.errors && addProductsForm.get('sellEndDate')?.touched}">
+              <i class="fa fa-solid fa-user"></i>
+              <input autocomplete="off" placeholder="sellEndDate" class="input-field" type="datetime-local" formControlName="sellEndDate">
+              <span *ngIf="addProductsForm.get('sellEndDate')?.hasError('required') && addProductsForm.get('sellEndDate')?.touched"
+                class="text-danger error-custom">sell End Date is require</span>
+              
+            </div>
+          </div>
+          
+        </div>
+
+
+        <button class="btn button1 border-0 rounded-5 mb-3 w-100" [disabled]="addProductsForm.invalid" type="submit" (click)="addProductToDB()">Add
+          Product</button>
+
+      </form>
+    </div>
+
+    <div *ngIf="!showAddProducts" class="col-12  mt-5  custom-table">
+      <table class="table w-100 ">
+        <thead>
+          <tr>
+            <th scope="col" class="text-center">Product Id</th>
+            <th scope="col" class="text-center">Name</th>
+            <th scope="col" class="text-center">Product Number</th>
+            <th scope="col" class="text-center">Color</th>
+            <th scope="col" class="text-center">Standard Cost</th>
+            <th scope="col" class="text-center">List price</th>
+            <th scope="col" class="text-center">Size</th>
+            <th scope="col" class="text-center">Weight</th>
+            <th scope="col" class="text-center">Product category Id</th>
+            <th scope="col" class="text-center">Product model Id</th>
+            <th scope="col" class="text-center">Sell Start Date</th>
+            <th scope="col" class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let product of products">
+            <th scope="row">{{product.productId}}</th>
+            <td class="text-center">{{product.name}}</td>
+            <td class="text-center">{{product.productNumber}}</td>
+            <td class="text-center">{{product.color||"N/A"}}</td>
+            <td class="text-center">{{product.standardCost}}</td>
+            <td class="text-center">{{product.ListPrice}}</td>
+            <td class="text-center">{{product.size||"N/A"}}</td>
+            <td class="text-center">{{product.weight||"N/A"}}</td>
+            <td class="text-center">{{product.productCategoryId}}</td>
+            <td class="text-center">{{product.productModelId}}</td>
+            <td class="text-center">{{product.sellStartdate}}</td>
+            <td>
+              <div class="d-flex justify-content-center align-content-center"><button
+                  class="btn btn-outline-danger me-1" (click)="deleteProduct(product.productId)"><i
+                    class="fa-solid fa-trash"></i></button><button class="btn btn-outline-warning"><i
+                    class="fa-solid fa-pen"></i></button></div>
+            </td>
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

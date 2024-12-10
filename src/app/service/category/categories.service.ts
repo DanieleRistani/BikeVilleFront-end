@@ -16,5 +16,7 @@ export class CategoriesService {
     return this.http.get('https://localhost:7167/ProductCategories/Details/' + id);
   }
 
-  
+  getCategoryWithOutProducts() {
+    return this.http.get('https://localhost:7167/ProductCategories/IndexWhithOutProducts');
+  }
 }

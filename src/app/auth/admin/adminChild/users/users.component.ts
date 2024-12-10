@@ -25,8 +25,7 @@ ngOnInit(): void {
 
 loadCustomers() {
   return this.adminService.getCustomers().subscribe((data: any) => {
-    console.log(data);
-    
+    console.log(data);  
     this.customers = data.$values;
   });
 }
@@ -34,7 +33,7 @@ deleteCustomer(id : number) {
   return this.adminService.deleteCustomerById(id).subscribe((data: any) => {
     console.log(data);
     this.notify.success('Customer deleted');
-    window.location.reload();
+   
   });
 }
 getCustomerSalesOrders(id:number){
